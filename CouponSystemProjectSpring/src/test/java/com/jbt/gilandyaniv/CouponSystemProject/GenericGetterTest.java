@@ -2,7 +2,6 @@ package com.jbt.gilandyaniv.CouponSystemProject;
 
 import static org.junit.Assert.assertEquals;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -53,6 +52,7 @@ public class GenericGetterTest {
 	
 	
 	
+@SuppressWarnings("unchecked")
 private <T> T getType(Object[] args,Class<T> type) {
 		
 				try {
@@ -63,7 +63,6 @@ private <T> T getType(Object[] args,Class<T> type) {
 			}
 		}
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 		return null;

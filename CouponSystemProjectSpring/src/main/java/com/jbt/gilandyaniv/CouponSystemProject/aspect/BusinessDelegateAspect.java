@@ -3,6 +3,8 @@ package com.jbt.gilandyaniv.CouponSystemProject.aspect;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,9 @@ import com.jbt.gilandyaniv.CouponSystemProject.beans.Coupon;
 public class BusinessDelegateAspect {
 
 	@Autowired
+	private Logger logger = LoggerFactory.getLogger(BusinessDelegateAspect.class);
+
+	@Autowired
 	private RestTemplate restTemplate;
 
 	@Value("${microservice.uri}")
@@ -22,11 +27,12 @@ public class BusinessDelegateAspect {
 
 	@AfterReturning("@annotation(CustomerPurchasedCoupon)")
 	public void CustomerPurchasedCouponAdvice(JoinPoint jp) {
-		Coupon coupon = getType(jp.getArgs(),Coupon.class);
-		
+		Coupon coupon = getType(jp.getArgs(), Coupon.class);
+
 		delegate("Customer/StoreIncome/" + coupon.getAmount());
 	}
 
+	//TODO implement method
 	@AfterReturning("@annotation(CompanyCreatedCoupon)")
 	public void CompanyCreatedCouponAdvice(JoinPoint jp) {
 		delegate("Company/CreateCoupon");
@@ -37,10 +43,12 @@ public class BusinessDelegateAspect {
 
 	}
 
+	//TODO implement method
 	private void delegate(String path) {
 		restTemplate.getForObject(uri + path, String.class);
 	}
 
+	@SuppressWarnings("unchecked")
 	private <T> T getType(Object[] args, Class<T> type) {
 
 		try {
@@ -51,8 +59,7 @@ public class BusinessDelegateAspect {
 				}
 			}
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.info(e.getMessage());
 		}
 		return null;
 	}

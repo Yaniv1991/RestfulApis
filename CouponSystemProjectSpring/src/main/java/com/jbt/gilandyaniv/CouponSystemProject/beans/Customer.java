@@ -1,7 +1,6 @@
 package com.jbt.gilandyaniv.CouponSystemProject.beans;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,6 +15,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.jbt.gilandyaniv.CouponSystemProject.utils.NoNullSet;
 
 import lombok.Data;
 
@@ -30,7 +30,7 @@ public class Customer {
 	@Column
 	private int id;
 
-	@Column
+	@Column(unique = true,updatable = false,nullable = false)
 	private String name;
 
 
@@ -43,12 +43,12 @@ public class Customer {
 
 	@JoinColumn
 	@ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	private List<Coupon> coupons;
+	private Set<Coupon> coupons;
 	
 	
 	public void addCoupon(Coupon coupon) {
 		if(coupons == null) {
-			coupons = new ArrayList<Coupon>();
+			coupons = new NoNullSet<Coupon>();
 		}
 		coupons.add(coupon);
 	}

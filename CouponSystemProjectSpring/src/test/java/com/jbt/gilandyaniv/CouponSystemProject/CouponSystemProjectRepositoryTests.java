@@ -2,19 +2,14 @@ package com.jbt.gilandyaniv.CouponSystemProject;
 
 import static org.junit.Assert.assertEquals;
 
-import javax.transaction.Transactional;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -31,6 +26,7 @@ import com.jbt.gilandyaniv.CouponSystemProject.dao.CustomerRepository;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @AutoConfigureDataJpa()
+//TODO test sql constraints
 public class CouponSystemProjectRepositoryTests {
 //
 //	

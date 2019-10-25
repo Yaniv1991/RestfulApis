@@ -21,6 +21,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+//TODO add sql constraints
 @Getter
 @Setter
 @Entity
@@ -32,9 +33,8 @@ public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	@ToString.Exclude
 	private int id;
-	@Column
+	@Column(unique = true,updatable = false,nullable = false)
 	private String name;
 	@Column
 	@JsonIgnore
@@ -43,7 +43,7 @@ public class Company {
 	private String email;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "company")
-	@ToString.Exclude
+	
 	@JsonIgnore
 	private List<Coupon> coupons;
 	

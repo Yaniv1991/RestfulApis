@@ -22,6 +22,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+//TODO add sql constraints
 @Data
 @NoArgsConstructor
 @Component
@@ -42,7 +43,7 @@ public class Coupon {
 	@Column
 	private int amount;
 	
-	@Column
+	@Column(unique = true,updatable = false,nullable = false)
 	private String title;
 	
 	@Column
@@ -51,14 +52,14 @@ public class Coupon {
 	@Enumerated(EnumType.ORDINAL)
 	private CouponType couponType;
 
-	@Column
+	@Column(updatable = false)
 	private double price;
 	
 	@Column
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate startDate;
 	
-	@Column
+	@Column(updatable = false)
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private LocalDate endDate;
 	
@@ -71,6 +72,8 @@ public class Coupon {
 	@ToString.Exclude
 	private Company company;
 	
-	
+	public void setTitle(String title) {
+		this.title = company + "'s " + title;
+	}
 }
 

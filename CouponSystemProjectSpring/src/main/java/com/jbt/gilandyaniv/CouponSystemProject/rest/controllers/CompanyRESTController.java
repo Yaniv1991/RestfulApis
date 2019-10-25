@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CompanyCreatedCoupon;
 import com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CompanyUpdatedCoupon;
-import com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.DelegatedToMicroservice;
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Coupon;
 import com.jbt.gilandyaniv.CouponSystemProject.beans.CouponType;
 import com.jbt.gilandyaniv.CouponSystemProject.exceptions.CouponSystemException;
