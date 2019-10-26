@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -64,13 +66,6 @@ public class BusinessDelegateAspect {
 		delegate("Company/UpdateCoupon",getIdFromRequest(req));
 	}
 
-	//TODO implement method
-	private void delegate(String path,long clientId) {
-//		restTemplate.getForObject(uri + path, String.class);
-		logger.info("This will be delegated to income micro service ^_^");
-		logger.info(path + "Client Id : " + clientId);
-	}
-
 	private Coupon getCoupon(Object[] args) {
 			for (Object object : args) {
 				if (object instanceof Coupon) {
@@ -108,4 +103,12 @@ public class BusinessDelegateAspect {
 		
 		return 0;
 	}
+
+	//TODO implement method
+		private void delegate(String path,long clientId) {
+//			restTemplate.getForObject(uri + path, String.class);
+			restTemplate.exchange(uri + path , HttpMethod.POST, new HttpEntity<Long>(clientId),String.class);
+			logger.info("This will be delegated to income micro service ^_^");
+			logger.info(path + "Client Id : " + clientId);
+		}
 }
