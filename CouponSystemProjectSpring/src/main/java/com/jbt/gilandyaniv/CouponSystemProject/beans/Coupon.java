@@ -1,6 +1,7 @@
 package com.jbt.gilandyaniv.CouponSystemProject.beans;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,9 +12,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -26,7 +27,7 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @Component
-@Scope(scopeName = "prototype")
+//@Scope(scopeName = "prototype")
 @Entity
 public class Coupon {
 
@@ -53,7 +54,7 @@ public class Coupon {
 	private CouponType couponType;
 
 	@Column(updatable = false)
-	private double price;
+	private Double price;
 	
 	@Column
 	@JsonFormat(pattern = "dd-MM-yyyy")
@@ -61,6 +62,7 @@ public class Coupon {
 	
 	@Column(updatable = false)
 	@JsonFormat(pattern = "dd-MM-yyyy")
+	
 	private LocalDate endDate;
 	
 	@Column
@@ -72,8 +74,23 @@ public class Coupon {
 	@ToString.Exclude
 	private Company company;
 	
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "coupons")
+	private Set<Customer> customers;
+	
 	public void setTitle(String title) {
 		this.title = company + "'s " + title;
+	}
+	
+	public void setEndDate(LocalDate endDate) {
+		if(this.endDate == null) this.endDate=endDate;
+		else
+		throw new RuntimeException("End date can only be set once");
+	}
+	
+	public void setPrice(Double price) {
+		if(this.price == null) this.price=price;
+		else
+		throw new RuntimeException("Price can only be set once");
 	}
 }
 

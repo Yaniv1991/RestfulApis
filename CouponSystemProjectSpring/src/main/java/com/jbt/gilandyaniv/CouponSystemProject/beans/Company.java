@@ -35,15 +35,15 @@ public class Company {
 	@Column
 	private int id;
 	@Column(unique = true,updatable = false,nullable = false)
-	private String name;
+	private String name = null;
 	@Column
 	@JsonIgnore
 	private String password;
 	@Column
 	private String email;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "company")
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "company",orphanRemoval = true)
 	@JsonIgnore
 	private List<Coupon> coupons;
 	
@@ -58,6 +58,11 @@ public class Company {
 		if(coupons.contains(coupon)) {
 			coupons.remove(coupon);
 		}
+	}
+	
+	public void setName(String name) {
+		if(this.name !=null) { throw new IllegalArgumentException("Name can only be set once");}
+		this.name=name;
 	}
 	
 }

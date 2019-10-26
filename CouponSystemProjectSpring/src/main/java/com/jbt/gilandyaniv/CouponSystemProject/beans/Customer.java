@@ -9,9 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
-import org.springframework.context.annotation.Scope;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -21,7 +20,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Scope(scopeName = "prototype")
+//@Scope(scopeName = "prototype")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Customer {
 	
@@ -41,8 +40,10 @@ public class Customer {
 	@Column
 	private String email;
 
-	@JoinColumn
-	@ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinTable(name = "customers_coupons",
+			joinColumns = @JoinColumn(name = "coupon_id"),
+	inverseJoinColumns = @JoinColumn(name = "customer_id"))
+	@ManyToMany(cascade = {CascadeType.DETACH,CascadeType.REMOVE,CascadeType.PERSIST})
 	private Set<Coupon> coupons;
 	
 	
