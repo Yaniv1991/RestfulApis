@@ -3,6 +3,7 @@ package com.gilandyaniv.IncomeMicroservice.controller;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,32 +15,37 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gilandyaniv.IncomeMicroservice.beans.Income;
 import com.gilandyaniv.IncomeMicroservice.beans.IncomeType;
-import com.gilandyaniv.IncomeMicroservice.repository.IncomeRepository;
+import com.gilandyaniv.IncomeMicroservice.repository.IncomeRepositoryTemplate;
 
 @RestController
 @RequestMapping("Income")
 public class IncomeRestController {
 
 	@Autowired
-	private IncomeRepository repository;
+	private IncomeRepositoryTemplate repository;
 
-	//TODO draw the hard-coded amounts from application.properties
+	@Value("${income.coupon.create}")
+	private String CompanyCreateCouponAmount;
+	
+	@Value("${income.coupon.update}")
+	private String CompanyUpdateCouponAmount;
+
 	
 	@PostMapping("Customer/StoreIncome/{amount}")
 	public ResponseEntity<Object> storeCustomerIncome(@PathVariable("amount") double amount,
 			@RequestBody long clientId) {
-		return storeIncome(amount, clientId, IncomeType.CUSTOMER_PURCHASED_COUPON);
+		return storeIncome(amount, "Customer " + clientId, IncomeType.CUSTOMER_PURCHASED_COUPON);
 	}
 
 	@PostMapping("Company/CreateCoupon")
 	public ResponseEntity<Object> CompanyCreatedACoupon(@RequestBody long clientId){
-		return storeIncome(100,clientId,IncomeType.COMPANY_CREATED_COUPON);
+		return storeIncome(100,"Company " + clientId,IncomeType.COMPANY_CREATED_COUPON);
 	}
 	
 	
 	@PostMapping("Company/UpdateCoupon")
 	public ResponseEntity<Object> CompanyUpdatedACoupon(@RequestBody long clientId){
-		return storeIncome(10,clientId,IncomeType.COMPANY_UPDATED_COUPON);
+		return storeIncome(10,"Company " + clientId,IncomeType.COMPANY_UPDATED_COUPON);
 	}
 	
 	
@@ -55,7 +61,7 @@ public class IncomeRestController {
 	@GetMapping("Admin/ViewIncomeByCustomer/{id}")
 	public ResponseEntity<Object> adminRequestedIncomeByCustomer(@PathVariable long id){
 		try {
-			return new ResponseEntity<Object>(repository.viewIncomeByCustomer(id),HttpStatus.OK);
+			return new ResponseEntity<Object>(repository.viewIncomeByCustomer(String.valueOf(id)),HttpStatus.OK);
 		}
 		catch(Exception e) {
 			return errorResponse(e);
@@ -64,7 +70,7 @@ public class IncomeRestController {
 	@GetMapping("Company/ViewIncome/{id}")
 	public ResponseEntity<Object> CompanyRequestedAllIncome(@PathVariable long id){
 		try {
-			return new ResponseEntity<Object>(repository.viewIncomeByCompany(id),HttpStatus.OK);
+			return new ResponseEntity<Object>(repository.viewIncomeByCompany(String.valueOf(id)),HttpStatus.OK);
 		}
 		catch(Exception e) {
 			return errorResponse(e);
@@ -73,13 +79,13 @@ public class IncomeRestController {
 	
 	
 //	@PostMapping("StoreIncome/{amount}&{clientId}")
-	private ResponseEntity<Object> storeIncome(double amount, long clientId, IncomeType type) {
+	private ResponseEntity<Object> storeIncome(double amount, String clientName, IncomeType type) {
 		try {
 			Income income = new Income();
 			income.setAmount(amount);
-			income.setName(""+clientId);;
+			income.setName(clientName);
 			income.setDate(LocalDate.now());
-			income.setType(type);;
+			income.setType(type);
 			repository.storeIncome(income);
 			return new ResponseEntity<Object>(HttpStatus.OK);
 		} catch (Exception e) {
