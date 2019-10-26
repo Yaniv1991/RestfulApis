@@ -22,12 +22,12 @@ import com.gilandyaniv.IncomeMicroservice.repository.IncomeRepositoryTemplate;
 public class IncomeRestController {
 
 	@Autowired
-	private IncomeRepositoryTemplate repository;
+	private IncomeRepositoryTemplate incomeRepositoryTemplate;
 
-	@Value("${income.coupon.create}")
+	@Value("${income.coupon.created}")
 	private String CompanyCreateCouponAmount;
 	
-	@Value("${income.coupon.update}")
+	@Value("${income.coupon.updated}")
 	private String CompanyUpdateCouponAmount;
 
 	
@@ -52,7 +52,7 @@ public class IncomeRestController {
 	@GetMapping("Admin/ViewAllIncome")
 	public ResponseEntity<Object> adminRequestedAllIncome(){
 		try {
-			return new ResponseEntity<Object>(repository.viewAllIncome(), HttpStatus.OK);
+			return new ResponseEntity<Object>(incomeRepositoryTemplate.viewAllIncome(), HttpStatus.OK);
 		}
 		catch(Exception e) {
 			return errorResponse(e);
@@ -61,7 +61,7 @@ public class IncomeRestController {
 	@GetMapping("Admin/ViewIncomeByCustomer/{id}")
 	public ResponseEntity<Object> adminRequestedIncomeByCustomer(@PathVariable long id){
 		try {
-			return new ResponseEntity<Object>(repository.viewIncomeByCustomer(String.valueOf(id)),HttpStatus.OK);
+			return new ResponseEntity<Object>(incomeRepositoryTemplate.viewIncomeByCustomer("Customer " + id),HttpStatus.OK);
 		}
 		catch(Exception e) {
 			return errorResponse(e);
@@ -70,7 +70,7 @@ public class IncomeRestController {
 	@GetMapping("Company/ViewIncome/{id}")
 	public ResponseEntity<Object> CompanyRequestedAllIncome(@PathVariable long id){
 		try {
-			return new ResponseEntity<Object>(repository.viewIncomeByCompany(String.valueOf(id)),HttpStatus.OK);
+			return new ResponseEntity<Object>(incomeRepositoryTemplate.viewIncomeByCompany("Company " + id),HttpStatus.OK);
 		}
 		catch(Exception e) {
 			return errorResponse(e);
@@ -78,7 +78,6 @@ public class IncomeRestController {
 	}
 	
 	
-//	@PostMapping("StoreIncome/{amount}&{clientId}")
 	private ResponseEntity<Object> storeIncome(double amount, String clientName, IncomeType type) {
 		try {
 			Income income = new Income();
@@ -86,7 +85,8 @@ public class IncomeRestController {
 			income.setName(clientName);
 			income.setDate(LocalDate.now());
 			income.setType(type);
-			repository.storeIncome(income);
+			incomeRepositoryTemplate.storeIncome(income);
+			System.out.println("Stored income " + income);
 			return new ResponseEntity<Object>(HttpStatus.OK);
 		} catch (Exception e) {
 			return errorResponse(e);

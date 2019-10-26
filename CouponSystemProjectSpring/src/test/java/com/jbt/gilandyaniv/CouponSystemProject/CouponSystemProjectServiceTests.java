@@ -36,7 +36,6 @@ import com.jbt.gilandyaniv.CouponSystemProject.rest.services.LoginService;
 @TestPropertySource("classpath:test.properties")
 @DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
 
-//TODO test sql constraints
 public class CouponSystemProjectServiceTests {
 
 

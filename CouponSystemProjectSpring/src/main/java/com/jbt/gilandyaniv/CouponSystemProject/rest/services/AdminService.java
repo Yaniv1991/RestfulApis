@@ -49,20 +49,9 @@ public class AdminService extends ClientService {
 		companyRepository.save(company);
 	}
 
-	
-	//TODO implement my own cascading
-	public void removeCompany(Company company) throws CouponSystemException {
-		if (companyRepository.existsById(company.getId())) {
-			companyRepository.delete(company);
-		} else {
-			throw new CouponSystemException("Company does not exist");
-		}
 
-	}
-	
 	public void removeCompany(int id) throws CouponSystemException {
 		if (companyRepository.existsById(id)) {
-//			Company company = companyRepository.findById(id).get();
 			
 			couponRepository.deleteAllCouponHistory(id);
 			companyRepository.delete(companyRepository.findById(id).get());

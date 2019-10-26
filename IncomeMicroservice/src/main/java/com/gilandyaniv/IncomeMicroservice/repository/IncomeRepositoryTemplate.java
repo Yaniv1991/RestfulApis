@@ -2,21 +2,29 @@ package com.gilandyaniv.IncomeMicroservice.repository;
 
 import java.util.Collection;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.gilandyaniv.IncomeMicroservice.beans.Income;
 
 @Repository
-public interface IncomeRepositoryTemplate{
+public interface IncomeRepositoryTemplate extends JpaRepository<Income, Integer>{
 
-	void storeIncome(Income income);
-	Collection<Income> viewAllIncome();
 	
-	@Query("from Income where name = Customer ?1")
-	Collection<Income> viewIncomeByCustomer(String customerId);
+	default void storeIncome(Income income) {
+		save(income);
+	};
 	
 	
-	@Query("from Income where name = Company ?1")
-	Collection<Income> viewIncomeByCompany(String companyId);
+	default Collection<Income> viewAllIncome(){
+		return findAll();
+	};
+	
+	@Query("from Income where name = :customerName")
+	Collection<Income> viewIncomeByCustomer(String customerName);
+	
+	
+	@Query("from Income where name = :companyName")
+	Collection<Income> viewIncomeByCompany(String companyName);
 }

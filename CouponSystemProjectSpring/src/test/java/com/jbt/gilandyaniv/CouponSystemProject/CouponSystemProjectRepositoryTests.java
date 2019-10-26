@@ -38,7 +38,6 @@ import com.jbt.gilandyaniv.CouponSystemProject.dao.CustomerRepository;
 @AutoConfigureDataJpa()
 @TestPropertySource("classpath:test.properties")
 @DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
-//TODO test sql constraints
 public class CouponSystemProjectRepositoryTests {
 //
 //	
@@ -209,7 +208,7 @@ public class CouponSystemProjectRepositoryTests {
 		customerRepository.saveAndFlush(fromDb);
 	}
 
-	// TODO
+	// Ok
 	@Test
 	@Transactional
 	public void whenPurchasedCouponGetsDeleted_thenCouponGetsDeletedFromCustomers() {
