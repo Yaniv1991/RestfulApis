@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,16 +17,23 @@ import com.jbt.gilandyaniv.CouponSystemProject.beans.Coupon;
 @Component
 public class BusinessDelegateAspect {
 
-	@Autowired
+	
 	private Logger logger = LoggerFactory.getLogger(BusinessDelegateAspect.class);
 
-	@Autowired
+	
 	private RestTemplate restTemplate;
+
+	
+	@Autowired
+	public BusinessDelegateAspect(RestTemplateBuilder builder) {
+		super();
+		this.restTemplate = builder.build();
+	}
 
 	@Value("${microservice.uri}")
 	private String uri;
 
-	@AfterReturning("@annotation(CustomerPurchasedCoupon)")
+	@AfterReturning("@annotation(com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CustomerPurchasedCoupon)")
 	public void CustomerPurchasedCouponAdvice(JoinPoint jp) {
 		Coupon coupon = getType(jp.getArgs(), Coupon.class);
 
@@ -33,12 +41,12 @@ public class BusinessDelegateAspect {
 	}
 
 	//TODO implement method
-	@AfterReturning("@annotation(CompanyCreatedCoupon)")
+	@AfterReturning("@annotation(com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CompanyCreatedCoupon)")
 	public void CompanyCreatedCouponAdvice(JoinPoint jp) {
 		delegate("Company/CreateCoupon");
 	}
 
-	@AfterReturning("@annotation(CompanyUpdatedCoupon)")
+	@AfterReturning("@annotation(com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CompanyUpdatedCoupon)")
 	public void CompanyUpdatedCouponAdvice(JoinPoint jp) {
 
 	}
