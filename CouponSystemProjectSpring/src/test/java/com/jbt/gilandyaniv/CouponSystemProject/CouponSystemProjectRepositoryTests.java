@@ -97,6 +97,16 @@ public class CouponSystemProjectRepositoryTests {
 
 	}
 
+	@Test
+	public void whenCreatingCustomer_thenCustomerIsFound() {
+		Customer c = newCustomer();
+		
+		customerRepository.save(c);
+		
+		assertEquals(c, customerRepository.findByName(c.getName()));
+		
+	}
+
 	@Test(expected = Exception.class)
 	public void whenCreatingCompanyWithSameName_thenThrowException() {
 		String name = "name";
@@ -189,16 +199,14 @@ public class CouponSystemProjectRepositoryTests {
 	}
 
 	
-	//FIXME implement this test
 	@Test(expected = Exception.class)
 	public void whenUpdatingCustomerName_thenThrowException() {
 		String name = "name";
-		Company c = new Company();
-		c.setName(name);
-		companyRepository.save(c);
-		Company fromDb = companyRepository.findById(1).get();
+		Customer c = newCustomer(name);
+		customerRepository.save(c);
+		Customer fromDb = customerRepository.findById(1).get();
 		fromDb.setName("2");
-		companyRepository.saveAndFlush(fromDb);
+		customerRepository.saveAndFlush(fromDb);
 	}
 
 	// TODO
@@ -239,6 +247,23 @@ public class CouponSystemProjectRepositoryTests {
 
 	}
 
+	
+
+	@Test(expected = Exception.class)
+	@Transactional
+	public void whenCustomerPurchasesSameCouponTwice_thenThrowException() {
+		Company company = newCompany();
+		companyRepository.save(company);
+		
+		Coupon coupon = newCoupon(company);
+		couponRepository.save(coupon);
+		
+		Customer customer = newCustomer();
+		customer.addCoupon(coupon);
+		customer.addCoupon(coupon);
+		
+	}
+
 	@Test
 	public void whenCompanyCreatesCoupon_thenCouponGetsReferencedToCompany() {
 		Company c = new Company();
@@ -268,10 +293,8 @@ public class CouponSystemProjectRepositoryTests {
 		
 	}
 	
-	private static Company newCompany() {
-		Company company = new  Company();
-		company.setName(mockName());
-		return company;
+	private  Company newCompany() {
+		return newCompany(mockName());
 	}
 	
 	private Company newCompany(String name) {
@@ -287,5 +310,15 @@ public class CouponSystemProjectRepositoryTests {
 		coupon.setAmount(30);
 		coupon.setPrice(60D);
 		return coupon;
+	}
+	
+	private Customer newCustomer() {
+		return newCustomer(mockName());
+	}
+
+	private Customer newCustomer(String name) {
+		Customer customer= new  Customer();
+		customer.setName(name);
+		return customer;
 	}
 }

@@ -1,5 +1,6 @@
 package com.jbt.gilandyaniv.CouponSystemProject.rest.services;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -54,7 +55,11 @@ public class CustomerService extends ClientService {
 	public void purchaseCoupon(int id) throws CouponSystemException {
 		Coupon coupon = couponRepository.findById(id).get();
 		Customer customer = customerRepository.findById(this.customer.getId()).get();
-		if(coupon.getAmount()>0) {
+		if(coupon.getAmount()>0 ) {
+			
+			if(coupon.getEndDate().isBefore(LocalDate.now())){
+				throw new CouponSystemException("Coupon has already expired");
+			}
 			customer.addCoupon(coupon);
 			coupon.setAmount(coupon.getAmount()-1);
 		}
