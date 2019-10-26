@@ -29,8 +29,8 @@ public class IncomeMicroserviceServiceTests {
 
 	@Test
 	public void whenCreatingIncomeFromCompany_thenFindIncome() throws Exception {
-		Income income1 = storeIncome(1,IncomeType.COMPANY_CREATED_COUPON);
-		Income income2 = storeIncome(1,IncomeType.COMPANY_CREATED_COUPON);
+		 storeIncome(1,IncomeType.COMPANY_CREATED_COUPON);
+		 storeIncome(1,IncomeType.COMPANY_CREATED_COUPON);
 		
 		
 		
@@ -41,8 +41,8 @@ public class IncomeMicroserviceServiceTests {
 	
 	@Test
 	public void whenCreatingIncomeFromCustomer_thenFindIncome() throws Exception {
-		Income income1 = storeIncome(3,IncomeType.CUSTOMER_PURCHASED_COUPON);
-		Income income2 = storeIncome(3,IncomeType.CUSTOMER_PURCHASED_COUPON);
+		storeIncome(3,IncomeType.CUSTOMER_PURCHASED_COUPON);
+		storeIncome(3,IncomeType.CUSTOMER_PURCHASED_COUPON);
 		
 		
 		List<Income> incomes = (List<Income>) incomeService.viewIncomeByCustomer(3);
