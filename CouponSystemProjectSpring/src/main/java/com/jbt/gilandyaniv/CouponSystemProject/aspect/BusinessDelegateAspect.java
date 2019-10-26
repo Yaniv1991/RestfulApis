@@ -53,7 +53,8 @@ public class BusinessDelegateAspect {
 
 	//TODO implement method
 	private void delegate(String path) {
-		restTemplate.getForObject(uri + path, String.class);
+//		restTemplate.getForObject(uri + path, String.class);
+		logger.info("This will be delegated to income micro service ^_^");
 	}
 
 	@SuppressWarnings("unchecked")

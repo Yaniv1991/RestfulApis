@@ -16,4 +16,9 @@ public interface CouponRepository extends JpaRepository<Coupon,Integer> {
 	@Query("delete from Coupon where end_date < current_date()")
 	void deleteAllExpiredCoupons();
 	
+	@Transactional
+	@Modifying
+	@Query("delete from Coupon coupon where coupon.company.id = :id")
+	void deleteAllCouponHistory(int id);
+	
 }

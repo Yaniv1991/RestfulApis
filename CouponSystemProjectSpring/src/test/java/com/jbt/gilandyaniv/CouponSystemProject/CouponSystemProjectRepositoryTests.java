@@ -293,6 +293,15 @@ public class CouponSystemProjectRepositoryTests {
 		
 	}
 	
+	
+	@Test
+	public void whenRemovingCouponFromHistory_thenCouponsReturnEmptyList() {
+		Company company = newCompany();
+		Coupon coupon = newCoupon(company);
+		
+		Customer customer = newCustomer();
+	}
+	
 	private  Company newCompany() {
 		return newCompany(mockName());
 	}

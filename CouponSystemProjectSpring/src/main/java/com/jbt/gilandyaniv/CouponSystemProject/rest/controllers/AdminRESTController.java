@@ -2,12 +2,12 @@ package com.jbt.gilandyaniv.CouponSystemProject.rest.controllers;
 
 import java.util.Collection;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,10 +38,10 @@ public class AdminRESTController {
 		}
 	}
 
-	@DeleteMapping("Company/Remove")
-	public ResponseEntity<Object> removeCompany(@RequestBody Company company) {
+	@DeleteMapping("Company/Remove/{id}")
+	public ResponseEntity<Object> removeCompany(@PathVariable("id") int id) {
 		try {
-			service.removeCompany(company);
+			service.removeCompany(id);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (CouponSystemException e) {
 			return GetErrorResponseEntity(e);

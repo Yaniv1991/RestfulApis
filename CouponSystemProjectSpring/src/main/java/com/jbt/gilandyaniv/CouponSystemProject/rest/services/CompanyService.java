@@ -67,15 +67,15 @@ public void updateCoupon(Coupon coupon) {
 }
 
 public Coupon read(int couponId) {
-	return couponRepository.getOne(couponId);
+	return couponRepository.findById(couponId).get();
 }
 
 public Collection<Coupon> returnAllCoupons() {
-	return companyRepository.getOne(company.getId()).getCoupons();
+	return companyRepository.findById(company.getId()).get().getCoupons();
 }
 
 public Collection<Coupon> returnAllCouponsByCategory(CouponType category) {
-	Collection<Coupon> allCoupons = companyRepository.getOne(company.getId()).getCoupons();
+	Collection<Coupon> allCoupons = companyRepository.findById(company.getId()).get().getCoupons();
 	
 	Collection<Coupon> result = new ArrayList<>();
 	for (Coupon coupon : allCoupons) {

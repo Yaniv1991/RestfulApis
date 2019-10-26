@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Company;
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Customer;
 import com.jbt.gilandyaniv.CouponSystemProject.dao.CompanyRepository;
+import com.jbt.gilandyaniv.CouponSystemProject.dao.CouponRepository;
 import com.jbt.gilandyaniv.CouponSystemProject.dao.CustomerRepository;
 import com.jbt.gilandyaniv.CouponSystemProject.exceptions.CouponSystemException;
 
@@ -27,6 +28,9 @@ public class AdminService extends ClientService {
 	@Autowired
 	private CompanyRepository companyRepository;
 
+	@Autowired
+	private CouponRepository couponRepository;
+	
 	@Value("${admin_service.email}")
 	private String EMAIL;
 
@@ -45,6 +49,8 @@ public class AdminService extends ClientService {
 		companyRepository.save(company);
 	}
 
+	
+	//TODO implement my own cascading
 	public void removeCompany(Company company) throws CouponSystemException {
 		if (companyRepository.existsById(company.getId())) {
 			companyRepository.delete(company);
@@ -53,6 +59,19 @@ public class AdminService extends ClientService {
 		}
 
 	}
+	
+	public void removeCompany(int id) throws CouponSystemException {
+		if (companyRepository.existsById(id)) {
+//			Company company = companyRepository.findById(id).get();
+			
+			couponRepository.deleteAllCouponHistory(id);
+			companyRepository.delete(companyRepository.findById(id).get());
+		} else {
+			throw new CouponSystemException("Company does not exist");
+		}
+		
+	}
+	
 
 	public void updateCompany(Company company) throws CouponSystemException {
 		if (companyRepository.existsById(company.getId())) {

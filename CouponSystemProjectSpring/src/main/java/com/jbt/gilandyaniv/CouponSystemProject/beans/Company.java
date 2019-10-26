@@ -12,22 +12,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.context.annotation.Scope;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-//TODO add sql constraints
 @Getter
 @Setter
 @Entity
 @Scope(scopeName = "prototype")
 @ToString(exclude = {"id","password","coupons"})
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler","password"}, allowSetters = true)
 public class Company {
 
 	@Id
@@ -37,14 +37,13 @@ public class Company {
 	@Column(unique = true,updatable = false,nullable = false)
 	private String name = null;
 	@Column
-	@JsonIgnore
 	private String password;
 	@Column
 	private String email;
 
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "company",orphanRemoval = true)
-	@JsonIgnore
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Coupon> coupons;
 	
 	public void addCoupon(Coupon coupon) {

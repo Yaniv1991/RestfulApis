@@ -49,7 +49,7 @@ public class CustomerService extends ClientService {
 	@PostConstruct
 	private void postCtor() {
 		this.customer= customerRepository.findById(customer.getId()).get();
-//		System.out.println("Customer Rep is " + customerRepository);
+		System.out.println("Customer Rep is " + customerRepository);
 	}
 
 	public void purchaseCoupon(int id) throws CouponSystemException {
