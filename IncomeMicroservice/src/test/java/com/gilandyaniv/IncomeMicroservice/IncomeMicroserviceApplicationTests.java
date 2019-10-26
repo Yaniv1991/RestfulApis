@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.gilandyaniv.IncomeMicroservice.beans.Income;
 import com.gilandyaniv.IncomeMicroservice.beans.IncomeType;
-import com.gilandyaniv.IncomeMicroservice.repository.IncomeRepositoryTemplate;
+import com.gilandyaniv.IncomeMicroservice.repository.IncomeRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -23,7 +23,7 @@ import com.gilandyaniv.IncomeMicroservice.repository.IncomeRepositoryTemplate;
 public class IncomeMicroserviceApplicationTests {
 
 	@Autowired
-	private IncomeRepositoryTemplate incomeRepositoryTemplate;
+	private IncomeRepository incomeRepositoryTemplate;
 	
 
 	@Test

@@ -1,31 +1,30 @@
 package com.gilandyaniv.IncomeMicroservice.repository;
 
-//public class IncomeRepository implements IncomeRepositoryTemplate{
-//
-//	private interface IncomeJpa extends JpaRepository<Income, Long>{	};
-//	
-//	@Autowired
-//	private IncomeJpa repository;
-//	@Override
-//	public void storeIncome(Income income) {
-//		repository.save(income);
-//	}
-//
-//	@Override
-//	public Collection<Income> viewAllIncome() {
-//		return repository.findAll();
-//	}
-//
-//	@Override
-//	public Collection<Income> viewIncomeByCustomer(long customerId) {
-//		
-//		return null;
-//	}
-//
-//	@Override
-//	public Collection<Income> viewIncomeByCompany(long companyId) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//}
+import java.util.Collection;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.gilandyaniv.IncomeMicroservice.beans.Income;
+
+@Repository
+public interface IncomeRepository extends JpaRepository<Income, Integer>{
+
+	
+	default void storeIncome(Income income) {
+		save(income);
+	};
+	
+	
+	default Collection<Income> viewAllIncome(){
+		return findAll();
+	};
+	
+	@Query("from Income where name = :customerName")
+	Collection<Income> viewIncomeByCustomer(String customerName);
+	
+	
+	@Query("from Income where name = :companyName")
+	Collection<Income> viewIncomeByCompany(String companyName);
+}
