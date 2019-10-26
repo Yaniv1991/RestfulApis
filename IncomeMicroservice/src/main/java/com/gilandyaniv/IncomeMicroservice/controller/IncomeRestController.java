@@ -28,10 +28,10 @@ public class IncomeRestController {
 	private String CompanyUpdateCouponAmount;
 
 	
-	@PostMapping("Customer/StoreIncome/{amount}")
-	public ResponseEntity<Object> storeCustomerIncome(@PathVariable("amount") double amount,
+	@PostMapping("Customer/StoreIncome/{price}")
+	public ResponseEntity<Object> storeCustomerIncome(@PathVariable("price") double price,
 			@RequestBody long clientId) {
-		return storeIncome(amount,clientId, IncomeType.CUSTOMER_PURCHASED_COUPON);
+		return storeIncome(price,clientId, IncomeType.CUSTOMER_PURCHASED_COUPON);
 	}
 
 	@PostMapping("Company/CreateCoupon")

@@ -15,6 +15,7 @@ import com.jbt.gilandyaniv.CouponSystemProject.beans.CouponType;
 import com.jbt.gilandyaniv.CouponSystemProject.dao.CompanyRepository;
 import com.jbt.gilandyaniv.CouponSystemProject.dao.CouponRepository;
 
+import lombok.Getter;
 import lombok.NonNull;
 
 @Service
@@ -22,6 +23,7 @@ import lombok.NonNull;
 @Transactional
 public class CompanyService extends ClientService {
 
+	@Getter
 private Company company;
 
 
@@ -56,10 +58,13 @@ public void createCoupon(Coupon coupon) {
 //	couponRepository.save(coupon);
 }
 
+@Transactional
 public void removeCoupon(Coupon coupon) {
-	company.removeCoupon(coupon);
-	couponRepository.delete(coupon);
-	
+	Company  CompanyfromDb = companyRepository.findById(company.getId()).get();
+	Coupon fromDb = couponRepository.findById(coupon.getId()).get();
+	CompanyfromDb.removeCoupon(fromDb);
+//	couponRepository.deleteById(coupon.getId());
+//	couponRepository.flush();
 }
 
 public void updateCoupon(Coupon coupon) {

@@ -18,6 +18,7 @@ import com.jbt.gilandyaniv.CouponSystemProject.dao.CouponRepository;
 import com.jbt.gilandyaniv.CouponSystemProject.dao.CustomerRepository;
 import com.jbt.gilandyaniv.CouponSystemProject.exceptions.CouponSystemException;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Service
@@ -26,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Transactional
 public class CustomerService extends ClientService {
 
-
+	@Getter
 	private Customer customer;
 	
 	@Autowired
@@ -46,10 +47,11 @@ public class CustomerService extends ClientService {
 		this.customer = customer;
 	}
 
+	
+	//TODO Do i even need this?
 	@PostConstruct
 	private void postCtor() {
 		this.customer= customerRepository.findById(customer.getId()).get();
-		System.out.println("Customer Rep is " + customerRepository);
 	}
 
 	public void purchaseCoupon(int id) throws CouponSystemException {

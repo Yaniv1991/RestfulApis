@@ -74,10 +74,11 @@ public class Coupon {
 	private String image;
 	
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@JoinColumn(name = "Company")
 	@ToString.Exclude
 	@JsonIgnore
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Company company;
 	
 	
@@ -88,7 +89,7 @@ public class Coupon {
 	
 	
 	public void setCompany(Company company) {
-		if(this.company != null) throw new RuntimeException("Company can only be set once");
+		if(this.company != null && company != null) throw new RuntimeException("Company can only be set once");
 		this.company = company;
 		setTitle(getTitle());
 	}

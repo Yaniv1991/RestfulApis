@@ -98,6 +98,15 @@ public class AdminService extends ClientService {
 		}
 
 	}
+	public void removeCustomer(int id) throws CouponSystemException {
+		
+		if (customerRepository.findById(id).isPresent()) {
+			customerRepository.deleteById(id);
+		} else {
+			throw new CouponSystemException("Customer does not exist");
+		}
+		
+	}
 
 	public void updateCustomer(Customer customer) throws CouponSystemException {
 		if (customerRepository.findById(customer.getId()).isPresent()) {

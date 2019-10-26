@@ -1,7 +1,11 @@
 package com.jbt.gilandyaniv.CouponSystemProject.aspect;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.catalina.connector.RequestFacade;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +16,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Coupon;
+import com.jbt.gilandyaniv.CouponSystemProject.dao.CouponRepository;
+import com.jbt.gilandyaniv.CouponSystemProject.rest.services.ClientService;
+import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CompanyService;
+import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CustomerService;
 
 @Aspect
 @Component
@@ -23,6 +31,8 @@ public class BusinessDelegateAspect {
 	
 	private RestTemplate restTemplate;
 
+	@Autowired
+	private CouponRepository couponRepository;
 	
 	@Autowired
 	public BusinessDelegateAspect(RestTemplateBuilder builder) {
@@ -33,43 +43,69 @@ public class BusinessDelegateAspect {
 	@Value("${microservice.uri}")
 	private String uri;
 
-	@AfterReturning("@annotation(com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CustomerPurchasedCoupon)")
-	public void CustomerPurchasedCouponAdvice(JoinPoint jp) {
-		Coupon coupon = getType(jp.getArgs(), Coupon.class);
-
-		delegate("Customer/StoreIncome/" + coupon.getAmount());
+	@Around("@annotation(com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CustomerPurchasedCoupon)")
+	public void CustomerPurchasedCouponAdvice(JoinPoint pjp) throws Throwable {
+		Coupon coupon = getCoupon(pjp.getArgs());
+		System.out.println("Args number is" + pjp.getArgs().length);
+		HttpServletRequest req =getRequest(pjp.getArgs());
+		delegate("Customer/StoreIncome/" + coupon.getPrice(),getIdFromRequest(req));
 	}
 
-	//TODO implement method
 	@AfterReturning("@annotation(com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CompanyCreatedCoupon)")
 	public void CompanyCreatedCouponAdvice(JoinPoint jp) {
-		delegate("Company/CreateCoupon");
+		
+		HttpServletRequest req = getRequest(jp.getArgs());
+		delegate("Company/CreateCoupon",getIdFromRequest(req));
 	}
 
 	@AfterReturning("@annotation(com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CompanyUpdatedCoupon)")
 	public void CompanyUpdatedCouponAdvice(JoinPoint jp) {
-
+		HttpServletRequest req = getRequest(jp.getArgs());
+		delegate("Company/UpdateCoupon",getIdFromRequest(req));
 	}
 
 	//TODO implement method
-	private void delegate(String path) {
+	private void delegate(String path,long clientId) {
 //		restTemplate.getForObject(uri + path, String.class);
 		logger.info("This will be delegated to income micro service ^_^");
+		logger.info(path + "Client Id : " + clientId);
 	}
 
-	@SuppressWarnings("unchecked")
-	private <T> T getType(Object[] args, Class<T> type) {
-
-		try {
-			Class<?> clazz = Class.forName(type.getName());
+	private Coupon getCoupon(Object[] args) {
 			for (Object object : args) {
-				if (object.getClass().equals(clazz)) {
-					return (T) object;
+				if (object instanceof Coupon) {
+					Coupon transientCoupon = (Coupon) object;
+					return couponRepository.findById(transientCoupon.getId()).get();
+							
 				}
 			}
-		} catch (ClassNotFoundException e) {
-			logger.info(e.getMessage());
+		return null;
+	}
+	
+	private HttpServletRequest getRequest(Object[] args) {
+		for (Object object : args) {
+			if(object instanceof RequestFacade) {
+				return (HttpServletRequest)object;
+			}
 		}
 		return null;
+	}
+	
+	private long getIdFromRequest(HttpServletRequest req) {
+		ClientService service = (ClientService) req.getSession(false).getAttribute("service");
+		
+		if(service instanceof CustomerService) {
+			CustomerService customerService = (CustomerService)service;
+			return customerService.getCustomer().getId();
+		}
+
+		if(service instanceof CompanyService) {
+			CompanyService companyService = (CompanyService)service;
+			return companyService.getCompany().getId();
+		}
+		
+		
+		
+		return 0;
 	}
 }

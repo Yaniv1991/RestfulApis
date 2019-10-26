@@ -41,7 +41,6 @@ public class CompanyRESTController {
 	}
 	
 	
-	//
 	@DeleteMapping("Remove")
 	public ResponseEntity<Object> removeCoupon(@RequestParam ("id") int couponId,HttpServletRequest req)  {
 		try {

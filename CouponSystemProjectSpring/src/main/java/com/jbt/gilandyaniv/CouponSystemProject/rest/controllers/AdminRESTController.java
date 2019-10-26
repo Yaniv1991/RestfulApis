@@ -89,10 +89,10 @@ public class AdminRESTController {
 		}
 	}
 
-	@DeleteMapping("Customer/Remove")
-	public ResponseEntity<Object> removeCustomer(@RequestBody Customer customer) {
+	@DeleteMapping("Customer/Remove/{id}")
+	public ResponseEntity<Object> removeCustomer(@PathVariable("id") int id) {
 		try {
-			service.removeCustomer(customer);
+			service.removeCustomer(id);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (CouponSystemException e) {
 			return GetErrorResponseEntity(e);

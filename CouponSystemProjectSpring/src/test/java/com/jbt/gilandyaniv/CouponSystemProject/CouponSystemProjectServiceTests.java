@@ -100,10 +100,6 @@ public class CouponSystemProjectServiceTests {
 		return company;
 	}
 	
-	private Company newCompany(String name) {
-		return newCompany(name,name,name);
-	}
-	
 	private Company newCompany() {
 		return newCompany("a","a","a");
 	}

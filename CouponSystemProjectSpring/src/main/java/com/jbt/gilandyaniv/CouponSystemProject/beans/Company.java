@@ -42,7 +42,9 @@ public class Company {
 	private String email;
 
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "company",orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "company"
+			,orphanRemoval = true
+			)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Coupon> coupons;
 	
