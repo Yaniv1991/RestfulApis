@@ -36,7 +36,6 @@ private CouponRepository couponRepository;
 
 @Override
 	public boolean login(String email, String password) {
-	System.out.println(companyRepository);
 		return companyRepository.existsByEmailAndPassword(email, password);
 	}
 
@@ -52,10 +51,6 @@ public void createCoupon(Coupon coupon) {
 	company.addCoupon(coupon);
 	coupon.setCompany(company);
 	companyRepository.save(company);
-//	System.out.println("Company is " + company);
-//	System.out.println("Company Rep is " + companyRepository);
-//	System.out.println("Coupon Rep is " + couponRepository);
-//	couponRepository.save(coupon);
 }
 
 @Transactional
@@ -63,8 +58,6 @@ public void removeCoupon(Coupon coupon) {
 	Company  CompanyfromDb = companyRepository.findById(company.getId()).get();
 	Coupon fromDb = couponRepository.findById(coupon.getId()).get();
 	CompanyfromDb.removeCoupon(fromDb);
-//	couponRepository.deleteById(coupon.getId());
-//	couponRepository.flush();
 }
 
 public void updateCoupon(Coupon coupon) {

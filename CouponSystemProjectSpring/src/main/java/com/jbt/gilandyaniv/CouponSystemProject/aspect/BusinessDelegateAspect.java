@@ -104,11 +104,8 @@ public class BusinessDelegateAspect {
 		return 0;
 	}
 
-	//TODO implement method
 		private void delegate(String path,long clientId) {
-//			restTemplate.getForObject(uri + path, String.class);
 			restTemplate.exchange(uri + path , HttpMethod.POST, new HttpEntity<Long>(clientId),String.class);
-			logger.info("This will be delegated to income micro service ^_^");
 			logger.info(path + "Client Id : " + clientId);
 		}
 }
