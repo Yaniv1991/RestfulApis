@@ -1,5 +1,7 @@
 package com.jbt.gilandyaniv.CouponSystemProject.dao;
 
+import java.util.Collection;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Coupon;
+import com.jbt.gilandyaniv.CouponSystemProject.beans.CouponType;
 
 @Repository
 public interface CouponRepository extends JpaRepository<Coupon,Integer> {
@@ -20,5 +23,13 @@ public interface CouponRepository extends JpaRepository<Coupon,Integer> {
 	@Modifying
 	@Query("delete from Coupon coupon where coupon.company.id = :id")
 	void deleteAllCouponHistory(int id);
+
+	//TODO Test this method
+	Collection<Coupon> findAllByCouponType(CouponType type);
+
+	//TODO Test this method
+	@Query("from Coupon coupon where coupon.price <= :price")
+	Collection<Coupon> findAllByMaxPrice(double price);
+	
 	
 }

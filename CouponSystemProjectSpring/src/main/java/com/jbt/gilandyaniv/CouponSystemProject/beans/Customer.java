@@ -48,7 +48,7 @@ public class Customer {
 	@JoinTable(name = "customers_coupons",
 			joinColumns = @JoinColumn(name = "customer_id"),
 	inverseJoinColumns = @JoinColumn(name = "coupon_id"))
-	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Set<Coupon> coupons;
 	
