@@ -45,7 +45,7 @@ public class BusinessDelegateAspect {
 	@Value("${microservice.uri}")
 	private String uri;
 
-	@Around("@annotation(com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CustomerPurchasedCoupon)")
+	@AfterReturning("@annotation(com.jbt.gilandyaniv.CouponSystemProject.aspect.annotation.CustomerPurchasedCoupon)")
 	public void CustomerPurchasedCouponAdvice(JoinPoint pjp) throws Throwable {
 		Coupon coupon = getCoupon(pjp.getArgs());
 		System.out.println("Args number is" + pjp.getArgs().length);
@@ -105,7 +105,12 @@ public class BusinessDelegateAspect {
 	}
 
 		private void delegate(String path,long clientId) {
-			restTemplate.exchange(uri + path , HttpMethod.POST, new HttpEntity<Long>(clientId),String.class);
+			try {
+				restTemplate.exchange(uri + path , HttpMethod.POST, new HttpEntity<Long>(clientId),String.class);
+			}
+			catch(Exception e) {
+				logger.info(e.getMessage());
+			}
 			logger.info(path + "Client Id : " + clientId);
 		}
 }

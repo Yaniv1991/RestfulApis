@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jbt.gilandyaniv.CouponSystemProject.utils.NoNullSet;
 
 import lombok.Data;
@@ -78,7 +79,6 @@ public class Coupon {
 	@JoinColumn(name = "Company")
 	@ToString.Exclude
 	@JsonIgnore
-	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Company company;
 	
 	
@@ -108,6 +108,40 @@ public class Coupon {
 		if(this.price == null) this.price=price;
 		else
 		throw new RuntimeException("Price can only be set once");
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Coupon other = (Coupon) obj;
+		if (company == null) {
+			if (other.company != null)
+				return false;
+		} else if (!company.equals(other.company))
+			return false;
+		if (id != other.id)
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((company == null) ? 0 : company.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
 	}
 }
 

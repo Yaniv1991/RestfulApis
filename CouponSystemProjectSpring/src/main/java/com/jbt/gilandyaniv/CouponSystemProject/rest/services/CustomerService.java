@@ -57,12 +57,12 @@ public class CustomerService extends ClientService {
 	public void purchaseCoupon(int id) throws CouponSystemException {
 		Coupon coupon = couponRepository.findById(id).get();
 		Customer customer = customerRepository.findById(this.customer.getId()).get();
-		if(coupon.getAmount()>0 ) {
-			
+		if(coupon.getAmount() > 0 ) {
 			if(coupon.getEndDate().isBefore(LocalDate.now())){
 				throw new CouponSystemException("Coupon has already expired");
 			}
 			customer.addCoupon(coupon);
+			
 			coupon.setAmount(coupon.getAmount()-1);
 		}
 		else {
@@ -73,7 +73,9 @@ public class CustomerService extends ClientService {
 
 
 	public Collection<Coupon> getAllCouponsOfCustomer() {
-		return customerRepository.getOne(customer.getId()).getCoupons();
+		Collection<Coupon> result = customerRepository.getOne(customer.getId()).getCoupons();
+		
+		return result;
 	}
 
 

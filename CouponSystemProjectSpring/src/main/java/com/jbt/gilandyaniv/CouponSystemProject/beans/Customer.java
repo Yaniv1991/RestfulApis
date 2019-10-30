@@ -45,10 +45,11 @@ public class Customer {
 	@Column
 	private String email;
 
+	
 	@JoinTable(name = "customers_coupons",
 			joinColumns = @JoinColumn(name = "customer_id"),
 	inverseJoinColumns = @JoinColumn(name = "coupon_id"))
-	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Set<Coupon> coupons;
 	
