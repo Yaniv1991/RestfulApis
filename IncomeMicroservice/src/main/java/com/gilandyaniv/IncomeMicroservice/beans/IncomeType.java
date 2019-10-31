@@ -12,9 +12,12 @@ import javax.persistence.Id;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * Income Type enum class.
+ * Income types include: Customer Purchase, Company Created Coupon or Company Updated Coupon.
+ * @authors Gil Gouetta, Yaniv Chen & Yair Sher 
+ */
 @Convert(converter = IncomeTypeConverter.class,attributeName = "id")
-//@Entity
-//@TypeDef(name = "IncomeType",typeClass = IncomeTypeMySQLEnumType.class)
 public enum IncomeType {
 
 	CUSTOMER_PURCHASED_COUPON(0,"Customer purchased coupon"),

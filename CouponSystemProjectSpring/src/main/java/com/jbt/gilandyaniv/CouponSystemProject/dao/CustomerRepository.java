@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Customer;
 
 
+/**
+ * Repositry class for Customer.
+ * @authors Gil Gouetta, Yair Sher & Yaniv Chen
+ */
+
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer,Integer> {
 

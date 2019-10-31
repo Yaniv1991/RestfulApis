@@ -22,7 +22,11 @@ import com.jbt.gilandyaniv.CouponSystemProject.dao.CouponRepository;
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.ClientService;
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CompanyService;
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CustomerService;
-
+/**
+ * Aspect used to log actions regarding buisness delgate.
+ * @authors Yair Sher, Yaniv Chen & Gil Gouetta
+ *
+ */
 @Aspect
 @Component
 public class BusinessDelegateAspect {

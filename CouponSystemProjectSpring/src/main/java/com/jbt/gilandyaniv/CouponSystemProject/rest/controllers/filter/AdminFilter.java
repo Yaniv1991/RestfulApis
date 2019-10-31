@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.AdminService;
-
+/**
+ * WebFilter for Admin user.
+ * @author Gil Gouetta, Yair Sher & Yaniv Chen
+ *
+ */
 
 @WebFilter("/Admin")
 public class AdminFilter implements Filter{

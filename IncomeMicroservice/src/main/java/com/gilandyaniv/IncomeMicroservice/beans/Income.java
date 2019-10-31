@@ -9,6 +9,12 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
+
+/**
+ * Income bean and entity.
+ * Handles all income related data.
+ */
+
 @Entity
 @Data
 public class Income {

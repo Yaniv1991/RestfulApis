@@ -11,14 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jbt.gilandyaniv.CouponSystemProject.beans.CouponType;
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.VisitorService;
-
+/**
+ * REST controller to handle non-logged-in visitors.
+ * Has only one method - get all coupons available in the system.
+ * @authors Gil Gouetta Yair Sher & Yaniv Chen
+ *
+ */
 @RestController
 @RequestMapping("Visitor")
 public class AnyRESTController {
 
 	@Autowired
 	private VisitorService service;
-	
+	/**
+	 * Gets all the coupons in the system that are available.
+	 * This is used for visitors not logged in to the system.
+	 * @return Response entity of Object
+	 */
 	@GetMapping("GetAllCoupons")
 	public ResponseEntity<Object> getAllAvailableCoupons(){
 		return new ResponseEntity<>(service.getAllCoupons(),HttpStatus.OK);

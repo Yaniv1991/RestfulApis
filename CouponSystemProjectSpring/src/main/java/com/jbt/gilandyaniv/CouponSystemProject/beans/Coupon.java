@@ -29,6 +29,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * Coupon java bean.
+ * @authors Yaniv Chen, Gil Gouetta & Yair Sher
+ */
+
 @Data
 @NoArgsConstructor
 @Component

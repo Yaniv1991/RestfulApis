@@ -23,10 +23,22 @@ import com.jbt.gilandyaniv.CouponSystemProject.beans.CouponType;
 import com.jbt.gilandyaniv.CouponSystemProject.exceptions.CouponSystemException;
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CompanyService;
 
+/**
+ * REST Controller for Company metohds.
+ * Contains all functionality for Company type user.
+ * @authors Yair Sher, Yaniv Chen & Gil Gouetta
+ */
+
 @RestController
 @RequestMapping("Company")
 public class CompanyRESTController {
 	
+	/**
+	 * Create method for Coupon.
+	 * @param coupon
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	
 	@CompanyCreatedCoupon
 	@PostMapping("Create")
@@ -40,7 +52,12 @@ public class CompanyRESTController {
 		}
 	}
 	
-	
+	/**
+	 * DELETE method for Coupon.
+	 * @param couponId
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	@DeleteMapping("Remove")
 	public ResponseEntity<Object> removeCoupon(@RequestParam ("id") int couponId,HttpServletRequest req)  {
 		try {
@@ -51,7 +68,12 @@ public class CompanyRESTController {
 			return new ResponseEntity<Object>(e,HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+	/**
+	 * Update method for Coupon.
+	 * @param coupon
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	@CompanyUpdatedCoupon
 	@PutMapping("Update")
 	public ResponseEntity<Object> updateCoupon(@RequestBody Coupon coupon,HttpServletRequest req)  {
@@ -63,7 +85,12 @@ public class CompanyRESTController {
 			return new ResponseEntity<Object>(e,HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+	/**
+	 * Read method for Coupon.
+	 * @param couponId
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	@GetMapping("Read")
 	public ResponseEntity<Object> getCoupon(@RequestParam("couponId") int couponId,HttpServletRequest req)  {
 		try {
@@ -75,7 +102,11 @@ public class CompanyRESTController {
 		}
 	}
 	
-	
+	/**
+	 * Read all method for Coupons.
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	@GetMapping("getAllCoupons")
 	public ResponseEntity<Object>  getAllCoupons(HttpServletRequest req){
 		try {
@@ -86,7 +117,12 @@ public class CompanyRESTController {
 			return new ResponseEntity<Object>(e,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+	/**
+	 * Read all method for Coupons, by category.
+	 * @param category CouponType
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	@GetMapping("getAllCoupons/{category}")
 	public ResponseEntity<Object>  getCouponsByCategory(@PathVariable("category") CouponType category,HttpServletRequest req) {
 		try {
@@ -98,10 +134,13 @@ public class CompanyRESTController {
 		}
 	}
 
-
 	
-	
-	
+	/**
+	 * Internal method used to get a CompanyService object with the relevant company.
+	 * @param req HttpServletRequest
+	 * @return CompanyService
+	 * @throws CouponSystemException
+	 */
 	private CompanyService getCompanyService(HttpServletRequest req) throws CouponSystemException{
 		System.out.println((CompanyService)req.getSession(false).getAttribute("service"));
 		return (CompanyService)req.getSession(false).getAttribute("service");

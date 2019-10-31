@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.ClientService;
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.LoginService;
 
+/**
+ * REST Controller for login service.
+ * @authors Yaniv Chen, Yair Sher & Gil Gouetta
+ *
+ */
+
 @RestController
 @RequestMapping
 public class LoginRESTController {
@@ -21,7 +27,12 @@ public class LoginRESTController {
 	@Autowired
 	private LoginService loginService;
 
-	
+	/**
+	 * Login method.
+	 * @param credentials
+	 * @param req HttpServletRequest
+	 * @return Response entity of Boolean
+	 */
 	
 	@PostMapping("Login")
 	public ResponseEntity<Boolean> Login(@RequestBody Credentials credentials,HttpServletRequest req){
@@ -35,10 +46,13 @@ public class LoginRESTController {
 		}
 		return new ResponseEntity<Boolean>(false,status);
 	}
-	
+	/**
+	 * Logout method
+	 * @param req HttpServletRequest
+	 * @return Response entity of Boolean
+	 */
 	
 	@GetMapping("Logout")
-
 	public ResponseEntity<Boolean> Logout(HttpServletRequest req){
 		if(req.getSession(false) != null){
 	req.getSession(false).invalidate();

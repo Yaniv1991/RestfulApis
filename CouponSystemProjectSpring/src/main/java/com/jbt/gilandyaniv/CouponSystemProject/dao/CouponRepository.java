@@ -12,6 +12,11 @@ import org.springframework.stereotype.Repository;
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Coupon;
 import com.jbt.gilandyaniv.CouponSystemProject.beans.CouponType;
 
+/**
+ * Repositry class for Coupon.
+ * @authors Yaniv Chen, Yair Sher & Gil Gouetta
+ */
+
 @Repository
 public interface CouponRepository extends JpaRepository<Coupon,Integer> {
 	@Transactional

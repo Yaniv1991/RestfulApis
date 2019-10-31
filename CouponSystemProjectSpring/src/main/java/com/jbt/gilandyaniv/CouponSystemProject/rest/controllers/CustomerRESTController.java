@@ -20,10 +20,21 @@ import com.jbt.gilandyaniv.CouponSystemProject.beans.CouponType;
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CustomerService;
 
 
+/**
+ * REST Controller for Customer metohds.
+ * Contains all functionality for Customer type user.
+ * @authors Yaniv Chen, Gil Gouetta & Yair Sher
+ */
+
 @RestController
 @RequestMapping("Customer")
 public class CustomerRESTController {
-
+	/**
+	 * Method used to purchase single coupon by customer.
+	 * @param couponToPurchase
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	@CustomerPurchasedCoupon
 	@PostMapping("Purchase")
 	public ResponseEntity<Object> purchaseCoupon(@RequestBody Coupon couponToPurchase,HttpServletRequest req)  {
@@ -36,7 +47,11 @@ public class CustomerRESTController {
 		}
 	}
 
-
+	/**
+	 * Read all method for Coupons.
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	
 	@GetMapping("getAllPurchasedCoupons")
 	public ResponseEntity<Object> getAllPurchasedCoupons(HttpServletRequest req)  {
@@ -49,7 +64,12 @@ public class CustomerRESTController {
 			return new ResponseEntity<Object>(e,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+	/**
+	 * Read all method for Coupons, by category.
+	 * @param category CouponType
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	@GetMapping("getAllPurchasedCoupons/{category}")
 	public ResponseEntity<Object> getAllPurchasedCouponsByCategory(@PathVariable("category") CouponType category,HttpServletRequest req) {
 		try {
@@ -60,7 +80,12 @@ public class CustomerRESTController {
 			return new ResponseEntity<Object>(e,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+	/**
+	 * Read all method for Coupons, by price.
+	 * @param price double
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
 	@GetMapping("getAllPurchasedCouponsByPrice")
 	public ResponseEntity<Object> getAllPurchasedCouponsByPrice(@RequestParam("price") double price,HttpServletRequest req)  {
 		try {
@@ -71,7 +96,11 @@ public class CustomerRESTController {
 			return new ResponseEntity<Object>(e,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+	/**
+	 * Internal method used to get a CustomerService object with the relevant customer.
+	 * @param req HttpServletRequest
+	 * @return CustomerService
+	 */
 	private CustomerService getService(HttpServletRequest req) {
 		return (CustomerService) req.getSession(false).getAttribute("service");
 	}

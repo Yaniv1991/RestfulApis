@@ -1,5 +1,11 @@
 package com.jbt.gilandyaniv.CouponSystemProject.exceptions;
 
+/**
+ * Exception handler class.
+ * @author Yaniv Chen, Yair Sher & Gil Gouetta
+ *
+ */
+
 public class CouponSystemException extends Exception {
 
 	/**

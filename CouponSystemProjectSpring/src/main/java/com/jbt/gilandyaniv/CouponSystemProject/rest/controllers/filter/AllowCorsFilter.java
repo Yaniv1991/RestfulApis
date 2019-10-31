@@ -1,5 +1,9 @@
 package com.jbt.gilandyaniv.CouponSystemProject.rest.controllers.filter;
-
+/**
+ * CORS handling filter.
+ * @authors Yaniv Chen, Gil Gouetta & Yair Sher
+ *
+ */
 import java.io.IOException;
 
 import javax.servlet.Filter;
@@ -7,8 +11,9 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
-
+@WebFilter("*")
 public class AllowCorsFilter implements Filter {
 
 	@Override

@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Company;
 
+/**
+ * Repositry class for Company.
+ * @authors Yair Sher, Yaniv Chen & Gil Gouetta
+ */
+
 @Repository
 public interface CompanyRepository extends JpaRepository<Company,Integer> {
 

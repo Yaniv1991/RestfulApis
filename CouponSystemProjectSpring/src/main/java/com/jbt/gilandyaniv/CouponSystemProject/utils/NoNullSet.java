@@ -4,7 +4,11 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-
+/**
+ * This is a Set class with no NULL values.
+ * @authors Yaniv Chen, Gil Gouetta & Yair Sher
+ * @param <E>
+ */
 public class NoNullSet <E> implements Set<E> {
 
 	final private Set<E> wrappedSet = new HashSet<E>();

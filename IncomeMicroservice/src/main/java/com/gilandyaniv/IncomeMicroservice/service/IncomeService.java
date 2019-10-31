@@ -12,6 +12,12 @@ import com.gilandyaniv.IncomeMicroservice.beans.Income;
 import com.gilandyaniv.IncomeMicroservice.beans.IncomeType;
 import com.gilandyaniv.IncomeMicroservice.repository.IncomeRepository;
 
+/**
+ * REST service to handle all Income related operations.
+ * Utilizes an IncomeRepository object to handle all db related transactions.
+ * @authors Yaniv Chen, Gil Gouetta & Yair Sher
+ */
+
 @Service
 public class IncomeService {
 

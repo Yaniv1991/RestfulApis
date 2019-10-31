@@ -14,6 +14,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import com.jbt.gilandyaniv.CouponSystemProject.dao.CouponRepository;
 
+/**
+ * Daily Job - Deletes expired coupons from db.
+ * @authors Yair Sher, Yaniv Chen & Gil Gouetta
+ *
+ */
+
 @SpringBootApplication
 @Order(1)
 public class CouponSystemExpirationDailyJob implements ApplicationContextAware {

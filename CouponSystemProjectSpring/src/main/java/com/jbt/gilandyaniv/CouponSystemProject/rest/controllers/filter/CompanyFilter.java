@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CompanyService;
-
+/**
+ * WebFilter for Company
+ * @authors Gil Gouetta, Yair Sher & Yaniv Chen
+ *
+ */
 @WebFilter("/Company")
 public class CompanyFilter implements Filter {
 

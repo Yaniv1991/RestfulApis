@@ -14,6 +14,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.core.annotation.Order;
 
+/**
+ * Login Filter for the coupon system.
+ * @authors Yair Sher, Yaniv Chen & Gil Gouetta
+ *
+ */
+
 @WebFilter("*")
 @Order(1)
 public class LoginFilter implements Filter {
@@ -26,7 +32,7 @@ public class LoginFilter implements Filter {
 			if(loginIsRequired(httpRequest) && 
 					(
 							!(httpRequest.getRequestURI().equals("/Login") 
-									|| (httpRequest.getRequestURI().equals("/Visitor/*")))
+									|| (httpRequest.getRequestURI().startsWith("/Visitor")))
 					)
 					) {
 //				System.out.println("Did not connect");

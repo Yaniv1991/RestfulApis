@@ -22,6 +22,11 @@ import com.jbt.gilandyaniv.CouponSystemProject.utils.NoNullSet;
 
 import lombok.Data;
 
+/**
+ * Customer java bean.
+ * @authors Gil Gouetta Yaniv Chen & Yair Sher
+ */
+
 @Data
 @Entity
 @Scope(scopeName = "prototype")

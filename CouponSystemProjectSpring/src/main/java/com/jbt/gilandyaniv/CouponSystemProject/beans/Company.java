@@ -22,6 +22,11 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Company java Bean.
+ * @authors Gil Gouetta, Yaniv Chen & Yair Sher
+ */
+
 @Getter
 @Setter
 @Entity

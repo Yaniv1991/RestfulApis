@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CustomerService;
-
+/**
+ * WebFilter for Customer
+ * @authors Yaniv Chen, Yair Sher & Gil Gouetta
+ *
+ */
 @WebFilter("/Customer")
 public class CustomerFilter implements Filter {
 

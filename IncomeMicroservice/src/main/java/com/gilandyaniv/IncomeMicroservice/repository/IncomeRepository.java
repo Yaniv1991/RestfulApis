@@ -8,6 +8,12 @@ import org.springframework.stereotype.Repository;
 
 import com.gilandyaniv.IncomeMicroservice.beans.Income;
 
+/**
+ * Repository to handle Income entity.
+ * holds Create and Read methods (All / By Customer / By Company) for income.
+ * @authors Yaniv Chen, Gil Gouetta & Yair Sher
+ */
+
 @Repository
 public interface IncomeRepository extends JpaRepository<Income, Integer>{
 
