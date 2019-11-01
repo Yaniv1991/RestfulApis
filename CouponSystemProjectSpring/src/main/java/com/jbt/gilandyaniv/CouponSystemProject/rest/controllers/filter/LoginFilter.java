@@ -21,7 +21,7 @@ import org.springframework.core.annotation.Order;
  */
 
 @WebFilter("*")
-@Order(1)
+@Order(2)
 public class LoginFilter implements Filter {
 
 	@Override

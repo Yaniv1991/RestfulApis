@@ -13,7 +13,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.core.annotation.Order;
 @WebFilter("*")
+@Order(1)
 public class AllowCorsFilter implements Filter {
 
 	@Override
