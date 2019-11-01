@@ -17,7 +17,7 @@ import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CustomerService;
  * @authors Yaniv Chen, Yair Sher & Gil Gouetta
  *
  */
-@WebFilter("/Customer")
+@WebFilter("/Customer/*")
 public class CustomerFilter implements Filter {
 
 	@Override

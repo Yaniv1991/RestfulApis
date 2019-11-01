@@ -28,22 +28,18 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest)request;
-		//System.out.println("trying to connect");
 			if(loginIsRequired(httpRequest) && 
 					(
 							!(httpRequest.getRequestURI().equals("/Login") 
 									|| (httpRequest.getRequestURI().startsWith("/Visitor")))
 					)
 					) {
-//				System.out.println("Did not connect");
 				HttpServletResponse httpResponse = (HttpServletResponse)response;
 				httpResponse.sendError(405);
 				return;
 			}
 				
-			// pass the request along the filter chain
 				chain.doFilter(request, response);
-				
 	}
 
 	

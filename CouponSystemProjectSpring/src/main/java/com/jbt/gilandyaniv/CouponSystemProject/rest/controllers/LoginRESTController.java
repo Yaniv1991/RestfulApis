@@ -37,6 +37,7 @@ public class LoginRESTController {
 	@PostMapping("Login")
 	public ResponseEntity<Boolean> Login(@RequestBody Credentials credentials,HttpServletRequest req){
 		
+		Logout(req);
 		HttpStatus status = HttpStatus.ACCEPTED;
 		ClientService service = loginService.login(credentials);
 		if(service != null) {

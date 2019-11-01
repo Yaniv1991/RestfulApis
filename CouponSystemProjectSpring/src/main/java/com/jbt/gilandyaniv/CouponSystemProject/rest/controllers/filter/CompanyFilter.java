@@ -18,7 +18,7 @@ import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CompanyService;
  * @authors Gil Gouetta, Yair Sher & Yaniv Chen
  *
  */
-@WebFilter("/Company")
+@WebFilter("/Company/*")
 public class CompanyFilter implements Filter {
 
 	@Override

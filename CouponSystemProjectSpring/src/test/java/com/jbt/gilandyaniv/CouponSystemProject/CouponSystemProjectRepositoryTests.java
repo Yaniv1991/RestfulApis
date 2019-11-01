@@ -25,6 +25,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Company;
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Coupon;
+import com.jbt.gilandyaniv.CouponSystemProject.beans.CouponType;
 import com.jbt.gilandyaniv.CouponSystemProject.beans.Customer;
 import com.jbt.gilandyaniv.CouponSystemProject.dao.CompanyRepository;
 import com.jbt.gilandyaniv.CouponSystemProject.dao.CouponRepository;
@@ -299,6 +300,24 @@ public class CouponSystemProjectRepositoryTests {
 		Coupon coupon = newCoupon(company);
 		
 		Customer customer = newCustomer();
+	}
+	
+	
+	@Test
+	public void whenAddingCouponsOfSameCategory_thenReturnCouponsByCategory() {
+		Coupon music = newCoupon(newCompany());
+		Coupon music2 = newCoupon(newCompany());
+		Coupon spa1 = newCoupon(newCompany());
+
+		music.setCouponType(CouponType.MUSIC);
+		music2.setCouponType(CouponType.MUSIC);
+		spa1.setCouponType(CouponType.SPA);
+		
+		couponRepository.save(music);
+		couponRepository.save(music2);
+		couponRepository.save(spa1);
+		assertTrue(couponRepository.findAllByCouponType(CouponType.MUSIC).size() == 2);
+		
 	}
 	
 	private  Company newCompany() {
