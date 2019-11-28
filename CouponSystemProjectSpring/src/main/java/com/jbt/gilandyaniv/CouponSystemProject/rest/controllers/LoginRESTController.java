@@ -36,7 +36,7 @@ public class LoginRESTController {
 	 * @return Response entity of Boolean
 	 */
 	
-	@PostMapping("Login")
+	@PostMapping("Rest/Login")
 	public ResponseEntity<Boolean> Login(@RequestBody Credentials credentials,HttpServletRequest req){
 		
 		Logout(req);

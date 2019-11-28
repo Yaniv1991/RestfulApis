@@ -20,7 +20,7 @@ import org.springframework.core.annotation.Order;
  *
  */
 
-@WebFilter("*")
+@WebFilter("/Rest/*")
 @Order(2)
 public class LoginFilter implements Filter {
 
@@ -28,10 +28,10 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest)request;
-			if(loginIsRequired(httpRequest) && 
+			if(loginIsRequired(httpRequest) &&
 					(
-							!(httpRequest.getRequestURI().equals("/Login") 
-									|| (httpRequest.getRequestURI().startsWith("/Visitor")))
+							!(httpRequest.getRequestURI().equals("/Rest/Login")
+									|| (httpRequest.getRequestURI().startsWith("/Rest/Visitor")))
 					)
 					) {
 				HttpServletResponse httpResponse = (HttpServletResponse)response;

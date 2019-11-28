@@ -22,7 +22,6 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jbt.gilandyaniv.CouponSystemProject.utils.NoNullSet;
 
 import lombok.Data;
@@ -68,11 +67,11 @@ public class Coupon {
 	private Double price;
 	
 	@Column
-	@JsonFormat(pattern = "dd-MM-yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate startDate;
 	
 	@Column(updatable = false)
-	@JsonFormat(pattern = "dd-MM-yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	
 	private LocalDate endDate;
 	

@@ -1,4 +1,5 @@
 package com.jbt.gilandyaniv.CouponSystemProject.rest.controllers.filter;
+
 /**
  * CORS handling filter.
  * @authors Yaniv Chen, Gil Gouetta & Yair Sher
@@ -15,6 +16,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.core.annotation.Order;
+
 @WebFilter("*")
 @Order(1)
 public class AllowCorsFilter implements Filter {
@@ -22,13 +24,15 @@ public class AllowCorsFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-		HttpServletResponse response = (HttpServletResponse)res;
-//		System.out.println("Allowing CORS");
+//		System.out.println("Filter is working for url : " + ((HttpServletRequest) req).getRequestURI());
+		HttpServletResponse response = (HttpServletResponse) res;
 		response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200"); // or "*"
-		response.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
+		response.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, authorization, X-Auth-Token");
 		response.addHeader("Access-Control-Allow-Credentials", "true");
 		response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
-	chain.doFilter(req, res);
+
+		response.setStatus(HttpServletResponse.SC_ACCEPTED);
+		chain.doFilter(req, res);
 	}
 
 }

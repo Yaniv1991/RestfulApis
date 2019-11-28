@@ -18,7 +18,7 @@ import com.jbt.gilandyaniv.CouponSystemProject.rest.services.VisitorService;
  *
  */
 @RestController
-@RequestMapping("Visitor")
+@RequestMapping("Rest/Visitor")
 public class AnyRESTController {
 
 	@Autowired
@@ -44,7 +44,7 @@ public class AnyRESTController {
 	}
 	
 	@GetMapping("GetOne/{id}")
-	public ResponseEntity<Object> getSingleCoupon(@RequestParam("id") int id){
+	public ResponseEntity<Object> getSingleCoupon(@PathVariable("id") int id){
 		return new ResponseEntity<>(service.getCoupon(id),HttpStatus.OK);
 	}
 }

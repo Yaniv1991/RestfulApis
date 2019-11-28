@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,8 @@ import com.jbt.gilandyaniv.CouponSystemProject.rest.services.CustomerService;
  */
 
 @RestController
-@RequestMapping("Customer")
+@RequestMapping("Rest/Customer")
+@CrossOrigin
 public class CustomerRESTController {
 	/**
 	 * Method used to purchase single coupon by customer.
@@ -56,7 +58,6 @@ public class CustomerRESTController {
 	@GetMapping("getAllPurchasedCoupons")
 	public ResponseEntity<Object> getAllPurchasedCoupons(HttpServletRequest req)  {
 		try {
-			
 			Collection<Coupon> coupons =  getService(req).getAllCouponsOfCustomer();
 			return new ResponseEntity<Object>(coupons,HttpStatus.OK);
 		}

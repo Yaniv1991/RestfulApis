@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +28,8 @@ import com.jbt.gilandyaniv.CouponSystemProject.rest.services.AdminService;
  * @authors Yaniv Chen, Gil Gouetta & Yair Sher
  */
 @RestController
-@RequestMapping("Admin")
+@RequestMapping("Rest/Admin")
+@CrossOrigin(origins = {"http://localhost:4200"} ,methods = {RequestMethod.GET, RequestMethod.DELETE, RequestMethod.POST, RequestMethod.PUT})
 public class AdminRESTController {
 
 	@Autowired
@@ -71,6 +74,7 @@ public class AdminRESTController {
 	public ResponseEntity<Object> updateCompany(@RequestBody Company company) {
 		try {
 			service.updateCompany(company);
+			System.out.println("Updating company " + company);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (CouponSystemException e) {
 			return GetErrorResponseEntity(e);
@@ -113,7 +117,7 @@ public class AdminRESTController {
 	@PostMapping("Customer/Create")
 	public ResponseEntity<Object> createCustomer(@RequestBody Customer customer) {
 		try {
-
+			System.out.println("Customer Create is working. Customer = " + customer);
 			service.addCustomer(customer);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (CouponSystemException e) {
