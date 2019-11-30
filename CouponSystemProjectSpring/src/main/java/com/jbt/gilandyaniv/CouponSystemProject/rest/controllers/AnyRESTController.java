@@ -1,5 +1,8 @@
 package com.jbt.gilandyaniv.CouponSystemProject.rest.controllers;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +44,12 @@ public class AnyRESTController {
 	@GetMapping("GetAllCouponsByPrice")
 	public ResponseEntity<Object> getAllAvailableCouponsByPrice(@RequestParam("price") double price){
 		return new ResponseEntity<>(service.getAllCoupons(price),HttpStatus.OK);
+	}
+	@GetMapping("GetAllCouponsByEndDate")
+	public ResponseEntity<Object> getAllAvailableCouponsByEndDate(@RequestParam("date") String dateAsString){
+		LocalDate date = LocalDate.parse(dateAsString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		System.out.println(date);
+		return new ResponseEntity<>(service.getAllCoupons(date),HttpStatus.OK);
 	}
 	
 	@GetMapping("GetOne/{id}")

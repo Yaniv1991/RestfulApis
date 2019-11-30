@@ -1,7 +1,7 @@
 package com.jbt.gilandyaniv.CouponSystemProject.rest.services;
 
+import java.time.LocalDate;
 import java.util.Collection;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +28,11 @@ public class VisitorService {
 		return repository.findAllByMaxPrice(price);
 	}
 
+	public Collection<Coupon> getAllCoupons(LocalDate endDate) {
+		return repository.findallByEndDate(endDate);
+	}
+	
 	public Coupon getCoupon(int id) {
-		// TODO Auto-generated method stub
 		return repository.findById(id).get();
 	}
 	

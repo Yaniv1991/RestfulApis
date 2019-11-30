@@ -1,5 +1,7 @@
 package com.jbt.gilandyaniv.CouponSystemProject.rest.controllers;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
@@ -82,8 +84,8 @@ public class CustomerRESTController {
 		}
 	}
 	/**
-	 * Read all method for Coupons, by price.
-	 * @param price double
+	 * Read all method for Coupons, by end date.
+	 * @param end date String
 	 * @param req HttpServletRequest
 	 * @return Response entity of Object
 	 */
@@ -91,6 +93,24 @@ public class CustomerRESTController {
 	public ResponseEntity<Object> getAllPurchasedCouponsByPrice(@RequestParam("price") double price,HttpServletRequest req)  {
 		try {
 			Collection<Coupon> couponsByMaxPrice =  getService(req).getAllCouponsByMaxPrice(price);
+			return new ResponseEntity<Object>(couponsByMaxPrice,HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<Object>(e,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	/**
+	 * Read all method for Coupons, by price.
+	 * @param price double
+	 * @param req HttpServletRequest
+	 * @return Response entity of Object
+	 */
+	@GetMapping("getAllPurchasedCouponsByEndDate")
+	public ResponseEntity<Object> getAllPurchasedCouponsByEndDate(@RequestParam("date") String dateAsString,HttpServletRequest req)  {
+		try {
+			LocalDate date = LocalDate.parse(dateAsString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+			Collection<Coupon> couponsByMaxPrice =  getService(req).getAllCouponsByEndDate(date);
 			return new ResponseEntity<Object>(couponsByMaxPrice,HttpStatus.OK);
 		}
 		catch (Exception e) {

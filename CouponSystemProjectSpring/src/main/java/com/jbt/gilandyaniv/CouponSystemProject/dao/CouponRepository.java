@@ -1,5 +1,6 @@
 package com.jbt.gilandyaniv.CouponSystemProject.dao;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.transaction.Transactional;
@@ -29,12 +30,12 @@ public interface CouponRepository extends JpaRepository<Coupon,Integer> {
 	@Query("delete from Coupon coupon where coupon.company.id = :id")
 	void deleteAllCouponHistory(int id);
 
-	//TODO Test this method
 	Collection<Coupon> findAllByCouponType(CouponType type);
 
-	//TODO Test this method
 	@Query("from Coupon coupon where coupon.price <= :price")
 	Collection<Coupon> findAllByMaxPrice(double price);
 	
+	@Query("from Coupon where end_date > :endDate")
+	Collection<Coupon> findallByEndDate(LocalDate endDate);
 	
 }

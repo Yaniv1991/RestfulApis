@@ -16,6 +16,7 @@ import org.springframework.core.annotation.Order;
 
 /**
  * Login Filter for the coupon system.
+ * 
  * @authors Yair Sher, Yaniv Chen & Gil Gouetta
  *
  */
@@ -27,27 +28,23 @@ public class LoginFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		HttpServletRequest httpRequest = (HttpServletRequest)request;
-			if(loginIsRequired(httpRequest) &&
-					(
-							!(httpRequest.getRequestURI().equals("/Rest/Login")
-									|| (httpRequest.getRequestURI().startsWith("/Rest/Visitor")))
-					)
-					) {
-				HttpServletResponse httpResponse = (HttpServletResponse)response;
-				httpResponse.sendError(405);
-				return;
-			}
-				
-				chain.doFilter(request, response);
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		if (loginIsRequired(httpRequest) && !((httpRequest.getRequestURI().equals("/Rest/Login")
+				|| (httpRequest.getRequestURI().startsWith("/Rest/Visitor"))
+				|| (httpRequest.getRequestURI().equals("/Rest/Logout"))))) {
+			HttpServletResponse httpResponse = (HttpServletResponse) response;
+			httpResponse.sendError(405);
+			return;
+		}
+
+		chain.doFilter(request, response);
 	}
 
-	
 	private boolean loginIsRequired(HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
 		if (session == null) {
 			return true;
 		}
-		return(session.getAttribute("service")==null);
+		return (session.getAttribute("service") == null);
 	}
 }

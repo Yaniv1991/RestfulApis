@@ -87,8 +87,8 @@ public class Coupon {
 	
 	
 	@JsonIgnore
-	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "coupons")
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	@ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},mappedBy = "coupons")
+	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	private Set<Customer> customers = new NoNullSet<Customer>();
 	
 	

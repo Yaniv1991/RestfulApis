@@ -55,7 +55,7 @@ public class LoginRESTController {
 	 * @return Response entity of Boolean
 	 */
 	
-	@GetMapping("Logout")
+	@GetMapping("Rest/Logout")
 	public ResponseEntity<Boolean> Logout(HttpServletRequest req){
 		if(req.getSession(false) != null){
 	req.getSession(false).invalidate();

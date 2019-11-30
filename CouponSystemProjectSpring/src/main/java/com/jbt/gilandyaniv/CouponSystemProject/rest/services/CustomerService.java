@@ -61,6 +61,9 @@ public class CustomerService extends ClientService {
 			if(coupon.getEndDate().isBefore(LocalDate.now())){
 				throw new CouponSystemException("Coupon has already expired");
 			}
+			if(customer.getCoupons().contains(coupon)) {
+				throw new CouponSystemException("Coupon already purchased");
+			}
 			customer.addCoupon(coupon);
 			
 			coupon.setAmount(coupon.getAmount()-1);
@@ -103,6 +106,21 @@ public class CustomerService extends ClientService {
 				result.add(coupon);
 			}
 		}
+		return result;
+	}
+
+
+	public Collection<Coupon> getAllCouponsByEndDate(LocalDate date) {
+		Collection<Coupon> allCoupons = customerRepository.getOne(customer.getId()).getCoupons();
+		
+		Collection<Coupon> result = new ArrayList<Coupon>();
+		
+		for (Coupon coupon : allCoupons) {
+			if(coupon.getEndDate().isAfter(date)) {
+				result.add(coupon);
+			}
+		}
+		
 		return result;
 	}
 
