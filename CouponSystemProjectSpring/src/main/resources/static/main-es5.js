@@ -63,7 +63,7 @@ module.exports = "<div>\n    <table>\n      <tr>\n        <td class=\"title\">Co
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <p>coupon-add-update works!</p> -->\n<div *ngIf=\"add\" class=\"wrapper\">\n    <div class=\"form\">\n        <form>\n            <label  class=\"formlabel\" for=\"title\">Title</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.title\" name=\"title\" >\n            <label  class=\"formlabel\" for=\"message\">Message</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.message\" name=\"message\" >\n            <label  class=\"formlabel\" for=\"amount\">Stock</label><input class=\"forminput\" type=\"number\" [(ngModel)]=\"coupon.amount\" name=\"amount\">\n            <label  class=\"formlabel\" for=\"price\">Price</label><input class=\"forminput\" type=\"number\" [(ngModel)]=\"coupon.price\" name=\"price\">\n            <label  class=\"formlabel\" for=\"startdate\">Start Date</label><input class=\"forminput\" type=\"date\" [(ngModel)]=\"coupon.startDate\" name=\"startDate\">\n            <label  class=\"formlabel\" for=\"enddate\">End Date</label><input class=\"forminput\" type=\"date\" [(ngModel)]=\"coupon.endDate\" name=\"endDate\">\n            <label  class=\"formlabel\" for=\"coupontype\">Type</label>\n            <select class=\"forminput\"  [(ngModel)]=\"coupon.type\" name=\"type\">\n              <option value=\"couponType.AUTOMOBILE\">Automobile</option>\n              <option value=\"couponType.CAMPING\" >Camping</option>\n              <option value=\"couponType.COMPUTER\">Computer</option>\n              <option value=\"couponType.ELECTRICITY\">Electricity</option>\n              <option value=\"couponType.FASHION\">Fashion</option>\n              <option value=\"couponType.FOOD\">Food</option>\n              <option value=\"couponType.HEALTH\">Health</option>\n              <option value=\"couponType.MUSIC\">Music</option>\n              <option value=\"couponType.RESTURANT\">Resturant</option>\n              <option value=\"couponType.SPA\">Spa</option>\n              <option value=\"couponType.SPORTS\">Sports</option>\n              <option value=\"couponType.TRAVELING\">Traveling</option>\n            </select>\n            <label  class=\"formlabel\" for=\"image\">Image URL</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.image\" name=\"image\">\n            <button type=\"submit\" class=\"submitbutton\" (click)=\"submitChanges()\">Submit</button>\n        </form>\n      </div>\n</div>\n<div *ngIf=\"!add\" class=\"wrapper\">\n    <img src=\"assets/images/Loading_Infinity.gif\" *ngIf=\"!coupon\">\n    <div class=\"form\" *ngIf=\"coupon\">\n        <form>\n            <label  class=\"formlabel\" for=\"title\">Title</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.title\" name=\"title\" >\n            <label  class=\"formlabel\" for=\"message\">Message</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.message\" name=\"message\" >\n            <label  class=\"formlabel\" for=\"amount\">Stock</label><input class=\"forminput\" type=\"number\" [(ngModel)]=\"coupon.amount\" name=\"amount\">\n            <label  class=\"formlabel\" for=\"price\">Price</label><input class=\"forminput\" type=\"number\" [(ngModel)]=\"coupon.price\" name=\"price\">\n            <label  class=\"formlabel\" for=\"startdate\">Start Date</label><input class=\"forminput\" type=\"date\" [(ngModel)]=\"coupon.startDate\" name=\"startDate\">\n            <label  class=\"formlabel\" for=\"enddate\">End Date</label><input class=\"forminput\" type=\"date\" [(ngModel)]=\"coupon.endDate\" name=\"endDate\">\n            <label  class=\"formlabel\" for=\"coupontype\">Type</label>\n            <select class=\"forminput\"  [(ngModel)]=\"coupon.type\" name=\"type\">\n              <option value=\"couponType.AUTOMOBILE\">Automobile</option>\n              <option value=\"couponType.CAMPING\">Camping</option>\n              <option value=\"couponType.COMPUTER\">Computer</option>\n              <option value=\"couponType.ELECTRICITY\">Electricity</option>\n              <option value=\"couponType.FASHION\">Fashion</option>\n              <option value=\"couponType.FOOD\">Food</option>\n              <option value=\"couponType.HEALTH\">Health</option>\n              <option value=\"couponType.MUSIC\">Music</option>\n              <option value=\"couponType.RESTURANT\">Resturant</option>\n              <option value=\"couponType.SPA\">Spa</option>\n              <option value=\"couponType.SPORTS\">Sports</option>\n              <option value=\"couponType.TRAVELING\">Traveling</option>\n            </select >\n            <label  class=\"formlabel\" for=\"image\">Image URL</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.image\" name=\"image\">\n            <!-- TDOD (Yaniv) Add file upload mechnincs-->\n            <button type=\"submit\" class=\"submitbutton\" (click)=\"submitChanges()\">Submit</button>\n        </form>\n      </div>\n</div>\n"
+module.exports = "<!-- <p>coupon-add-update works!</p> -->\n<div *ngIf=\"add\" class=\"wrapper\">\n    <div class=\"form\">\n        <form>\n            <label  class=\"formlabel\" for=\"title\">Title</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.title\" name=\"title\" >\n            <label  class=\"formlabel\" for=\"message\">Message</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.message\" name=\"message\" >\n            <label  class=\"formlabel\" for=\"amount\">Stock</label><input class=\"forminput\" type=\"number\" [(ngModel)]=\"coupon.amount\" name=\"amount\">\n            <label  class=\"formlabel\" for=\"price\">Price</label><input class=\"forminput\" type=\"number\" [(ngModel)]=\"coupon.price\" name=\"price\">\n            <label  class=\"formlabel\" for=\"startdate\">Start Date</label><input class=\"forminput\" type=\"date\" [(ngModel)]=\"coupon.startDate\" name=\"startDate\">\n            <label  class=\"formlabel\" for=\"enddate\">End Date</label><input class=\"forminput\" type=\"date\" [(ngModel)]=\"coupon.endDate\" name=\"endDate\">\n            <label  class=\"formlabel\" for=\"coupontype\">Type</label>\n            <select class=\"forminput\"  [(ngModel)]=\"coupon.type\" name=\"type\">\n              <option value=\"couponType.AUTOMOBILE\">Automobile</option>\n              <option value=\"couponType.CAMPING\" >Camping</option>\n              <option value=\"couponType.COMPUTER\">Computer</option>\n              <option value=\"couponType.ELECTRICITY\">Electricity</option>\n              <option value=\"couponType.FASHION\">Fashion</option>\n              <option value=\"couponType.FOOD\">Food</option>\n              <option value=\"couponType.HEALTH\">Health</option>\n              <option value=\"couponType.MUSIC\">Music</option>\n              <option value=\"couponType.RESTURANT\">Resturant</option>\n              <option value=\"couponType.SPA\">Spa</option>\n              <option value=\"couponType.SPORTS\">Sports</option>\n              <option value=\"couponType.TRAVELING\">Traveling</option>\n            </select>\n            <label  class=\"formlabel\" for=\"image\">Image URL</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.image\" name=\"image\">\n            <button type=\"submit\" class=\"submitbutton\" (click)=\"submitChanges()\">Submit</button>\n        </form>\n      </div>\n</div>\n<div *ngIf=\"!add\" class=\"wrapper\">\n    <img src=\"assets/images/Loading_Infinity.gif\" *ngIf=\"!coupon\">\n    <div class=\"form\" *ngIf=\"coupon\">\n        <form>\n            <label  class=\"formlabel\" for=\"title\">Title</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.title\" name=\"title\" >\n            <label  class=\"formlabel\" for=\"message\">Description</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.description\" name=\"description\" >\n            <label  class=\"formlabel\" for=\"amount\">Stock</label><input class=\"forminput\" type=\"number\" [(ngModel)]=\"coupon.amount\" name=\"amount\">\n            <label  class=\"formlabel\" for=\"price\">Price</label><input class=\"forminput\" type=\"number\" [(ngModel)]=\"coupon.price\" name=\"price\">\n            <label  class=\"formlabel\" for=\"startdate\">Start Date</label><input class=\"forminput\" type=\"date\" [(ngModel)]=\"coupon.startDate\" name=\"startDate\">\n            <label  class=\"formlabel\" for=\"enddate\">End Date</label><input class=\"forminput\" type=\"date\" [(ngModel)]=\"coupon.endDate\" name=\"endDate\">\n            <label  class=\"formlabel\" for=\"coupontype\">Type</label>\n            <select class=\"forminput\"  [(ngModel)]=\"coupon.couponType\" name=\"couponType\">\n              <option value=\"couponType.AUTOMOBILE\">Automobile</option>\n              <option value=\"couponType.CAMPING\">Camping</option>\n              <option value=\"couponType.COMPUTER\">Computer</option>\n              <option value=\"couponType.ELECTRICITY\">Electricity</option>\n              <option value=\"couponType.FASHION\">Fashion</option>\n              <option value=\"couponType.FOOD\">Food</option>\n              <option value=\"couponType.HEALTH\">Health</option>\n              <option value=\"couponType.MUSIC\">Music</option>\n              <option value=\"couponType.RESTURANT\">Resturant</option>\n              <option value=\"couponType.SPA\">Spa</option>\n              <option value=\"couponType.SPORTS\">Sports</option>\n              <option value=\"couponType.TRAVELING\">Traveling</option>\n            </select >\n            <label  class=\"formlabel\" for=\"image\">Image URL</label><input class=\"forminput\" type=\"text\" [(ngModel)]=\"coupon.image\" name=\"image\">\n            <!-- TDOD (Yaniv) Add file upload mechnincs-->\n            <button type=\"submit\" class=\"submitbutton\" (click)=\"submitChanges()\">Submit</button>\n        </form>\n      </div>\n</div>\n"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ module.exports = "<!-- <p>coupon-add-update works!</p> -->\n<div *ngIf=\"add\" c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<img *ngIf=\"!coupon\" src = \"assets/images/Loading_Infinity.gif\">\n<div *ngIf=\"coupon\" class=\"coupon\">\n  <div class=\"container\">\n    <h3>{{coupon.title}}</h3>\n    <h4>{{coupon.category}}</h4>\n  </div>\n  <img [src]=\"coupon.image\" class=\"image\">\n  <div class=\"container\" style=\"background-color:white\">\n    <h2><b>{{coupon.price}} ILS</b></h2>\n    <p>{{coupon.message}}</p>\n  </div>\n  <div class=\"container\">\n    <p>Only&nbsp;<span class=\"promo\">{{coupon.amount}}</span>&nbsp;left in stock</p>\n    <p class=\"expire\">Expires: {{coupon.endDate}}</p>\n  </div>\n  <div *ngIf=\"isCustomer\" class=\"container\">\n    <div class=\"purchase\">\n      <button class=\"buttonpurchase\" (click)=\"purchaseCoupon()\">Purchase</button>\n    </div>\n  </div>\n  <div *ngIf=\"!isCustomer\" class=\"othercontainer\">\n    <table>\n      <tr>\n        <td class=\"update\">\n          <button class=\"buttonupdate\" a routerLink=\"{{url}}\">Update</button>\n          <!-- <a routerLink=\"/addOrUpdate/update/coupon/{{coupon.id}}\" class=\"update\"><img src=\"../assets/images/UpdateButton.png\" alt=\"Update\"></a> -->\n        </td>\n        <td class=\"delete\">\n          <button class=\"buttondelete\" (click)=\"promptMessage()\">Delete</button>\n          <!-- <a (click)=\"deleteCoupon()\" class=\"delete\"><img src=\"../assets/images/deleteButton.png\" alt=\"Delete\"></a> -->\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
+module.exports = "<img *ngIf=\"!coupon\" src = \"assets/images/Loading_Infinity.gif\">\n<div *ngIf=\"coupon\" class=\"coupon\">\n  <div class=\"container\">\n    <h3>{{coupon.title}}</h3>\n    <h4>{{coupon.category}}</h4>\n  </div>\n  <img [src]=\"coupon.image\" class=\"image\">\n  <div class=\"container\" style=\"background-color:white\">\n    <h2><b>{{coupon.price}} ILS</b></h2>\n    <p>{{coupon.description}}</p>\n  </div>\n  <div class=\"container\">\n    <p>Only&nbsp;<span class=\"promo\">{{coupon.amount}}</span>&nbsp;left in stock</p>\n    <p class=\"expire\">Expires: {{coupon.endDate}}</p>\n  </div>\n  <div *ngIf=\"isCustomer\" class=\"container\">\n    <div class=\"purchase\">\n      <button class=\"buttonpurchase\" *ngIf=\"!purchased\" (click)=\"purchaseCoupon()\">Purchase</button>\n    </div>\n  </div>\n  <div *ngIf=\"!isCustomer\" class=\"othercontainer\">\n    <table>\n      <tr>\n        <td class=\"update\">\n          <button class=\"buttonupdate\" a routerLink=\"{{url}}\">Update</button>\n          <!-- <a routerLink=\"/addOrUpdate/update/coupon/{{coupon.id}}\" class=\"update\"><img src=\"../assets/images/UpdateButton.png\" alt=\"Update\"></a> -->\n        </td>\n        <td class=\"delete\">\n          <button class=\"buttondelete\" (click)=\"promptMessage()\">Delete</button>\n          <!-- <a (click)=\"deleteCoupon()\" class=\"delete\"><img src=\"../assets/images/deleteButton.png\" alt=\"Delete\"></a> -->\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ module.exports = "<img *ngIf=\"!coupon\" src = \"assets/images/Loading_Infinity.
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<img *ngIf=\"!coupons\" src = \"assets/images/Loading_Infinity.gif\">\n\n<div *ngIf=\"coupons\" class=\"wrapper\">\n  <div class=\"headcomp\" *ngIf=\"!isCustomer\">\n  <table class=\"comptable\">\n    <tr>\n      <td>\n        <button class=\"buttonadd\" a routerLink=\"/couponAddOrUpdate/0\">Add New</button>\n      </td>\n      <td>\n        <form>\n          <label for=\"couponType\" class=\"formLabel\">Category</label>\n          <select [(ngModel)]=\"type\" class=\"forminput\" name=\"couponType\">\n            <option value=\"All\">All</option>\n            <option value=\"AUTOMOBILE\">Automobile</option>\n            <option value=\"CAMPING\">Camping</option>\n            <option value=\"COMPUTER\">Computer</option>\n            <option value=\"ELECTRICITY\">Electricity</option>\n            <option value=\"FASHION\">Fashion</option>\n            <option value=\"FOOD\">Food</option>\n            <option value=\"HEALTH\">Health</option>\n            <option value=\"MUSIC\">Music</option>\n            <option value=\"RESTURANT\">Resturant</option>\n            <option value=\"SPA\">Spa</option>\n            <option value=\"SPORT\">Sport</option>\n            <option value=\"TRAVELING\">Traveling</option>\n          </select>\n        </form>\n      </td>\n      <td>\n        <button class=\"searchbutton\" (click)=\"searchByType()\">Search</button>\n      </td>\n    </tr>\n  </table>\n  </div>\n  <div class=\"headcust\" *ngIf=\"isCustomer\">\n    <table class=\"custtable\">\n      <tr>\n        <td>\n          <form>\n            <label for=\"couponType\" class=\"formLabel\">Category</label>\n            <select [(ngModel)]=\"type\" class=\"forminput\" id=\"coupon_type\" name=\"couponType\">\n                <option value=\"All\">All</option>\n              <option value=\"AUTOMOBILE\">Automobile</option>\n              <option value=\"CAMPING\">Camping</option>\n              <option value=\"COMPUTER\">Computer</option>\n              <option value=\"ELECTRICITY\">Electricity</option>\n              <option value=\"FASHION\">Fashion</option>\n              <option value=\"FOOD\">Food</option>\n              <option value=\"HEALTH\">Health</option>\n              <option value=\"MUSIC\">Music</option>\n              <option value=\"RESTURANT\">Resturant</option>\n              <option value=\"SPA\">Spa</option>\n              <option value=\"SPORT\">Sport</option>\n              <option value=\"TRAVELING\">Traveling</option>\n            </select>\n          </form>\n        </td>\n        <td>\n          <button class=\"searchbutton\" (click)=\"searchByType()\">Search</button>\n        </td>\n        <td>\n          <form>\n            <label for=\"price\" class=\"formLabel\">Price</label><input type=\"number\" class=\"forminput\" [(ngModel)]=\"price\" name=\"price\">\n          </form>\n        </td>\n        <td>\n          <button class=\"searchbutton\" (click)=\"searchByPrice()\">Search</button>\n        </td>\n      </tr>\n    </table>\n  </div>\n  <div class=\"coupon\" *ngFor=\"let coupon of coupons\">\n    <app-coupon [coupon]=\"coupon\" [isCustomer]=\"isCustomer\"></app-coupon>\n  </div>\n</div>\n"
+module.exports = "<img *ngIf=\"!coupons\" src = \"assets/images/Loading_Infinity.gif\">\r\n\r\n<div *ngIf=\"coupons\" class=\"wrapper\">\r\n  <div class=\"headcomp\" *ngIf=\"!isCustomer\">\r\n  <table class=\"comptable\">\r\n    <tr>\r\n        <button class=\"buttonadd\" a routerLink='/couponAddOrUpdate/0'>Add New</button>\r\n    </tr>\r\n    <tr>\r\n      <td>\r\n        <form>\r\n          <label for=\"couponType\" class=\"formLabel\">Category</label><br>\r\n          <select [(ngModel)]=\"couponType\" class=\"forminput\" id=\"coupon_type\" name=\"couponType\">\r\n            <option value=\"ALL\" selected>All</option>\r\n            <option value=\"AUTOMOBILE\">Automobile</option>\r\n            <option value=\"CAMPING\">Camping</option>\r\n            <option value=\"COMPUTER\">Computer</option>\r\n            <option value=\"ELECTRICITY\">Electricity</option>\r\n            <option value=\"FASHION\">Fashion</option>\r\n            <option value=\"FOOD\">Food</option>\r\n            <option value=\"HEALTH\">Health</option>\r\n            <option value=\"MUSIC\">Music</option>\r\n            <option value=\"RESTURANT\">Resturant</option>\r\n            <option value=\"SPA\">Spa</option>\r\n            <option value=\"SPORT\">Sport</option>\r\n            <option value=\"TRAVELING\">Traveling</option>\r\n          </select>\r\n        </form>\r\n      </td>\r\n      <td>\r\n        <form>\r\n          <label for=\"price\" class=\"formLabel\">Max Price</label><br><input type=\"number\" class=\"forminput\" [(ngModel)]=\"price\" name=\"price\" placeholder=\"100\">\r\n        </form>\r\n      </td>\r\n      <td>\r\n        <form>\r\n          <label for=\"date\" class=\"formLabel\">End Date</label><br><input type=\"date\" class=\"forminput\" [(ngModel)]=\"endDate\" name=\"endDate\">\r\n        </form>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td>\r\n        <button class=\"searchbutton\" (click)=\"searchByType()\">Search</button>\r\n      </td>\r\n      <td>\r\n        <button class=\"searchbutton\" (click)=\"searchByPrice()\">Search</button>\r\n      </td>\r\n      <td>\r\n        <button class=\"searchbutton\" (click)=\"searchByEndDate()\">Search</button>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n  </div>\r\n  <div class=\"headcust\" *ngIf=\"isCustomer\">\r\n    <table class=\"custtable\">\r\n      <tr>\r\n        <td>\r\n          <form>\r\n            <label for=\"couponType\" class=\"formLabel\">Category</label><br>\r\n            <select [(ngModel)]=\"couponType\" class=\"forminput\" id=\"coupon_type\" name=\"couponType\">\r\n              <option value=\"ALL\" selected>All</option>\r\n              <option value=\"AUTOMOBILE\">Automobile</option>\r\n              <option value=\"CAMPING\">Camping</option>\r\n              <option value=\"COMPUTER\">Computer</option>\r\n              <option value=\"ELECTRICITY\">Electricity</option>\r\n              <option value=\"FASHION\">Fashion</option>\r\n              <option value=\"FOOD\">Food</option>\r\n              <option value=\"HEALTH\">Health</option>\r\n              <option value=\"MUSIC\">Music</option>\r\n              <option value=\"RESTURANT\">Resturant</option>\r\n              <option value=\"SPA\">Spa</option>\r\n              <option value=\"SPORT\">Sport</option>\r\n              <option value=\"TRAVELING\">Traveling</option>\r\n            </select>\r\n          </form>\r\n        </td>\r\n        <td>\r\n          <form>\r\n            <label for=\"price\" class=\"formLabel\">Max Price</label><br><input type=\"number\" class=\"forminput\" [(ngModel)]=\"price\" name=\"price\" placeholder=\"100\">\r\n          </form>\r\n        </td>\r\n        <td>\r\n          <form>\r\n            <label for=\"date\" class=\"formLabel\">End Date</label><br><input type=\"date\" class=\"forminput\" [(ngModel)]=\"endDate\" name=\"endDate\">\r\n          </form>\r\n        </td>\r\n      </tr>\r\n      <tr>\r\n        <td>\r\n          <button class=\"searchbutton\" (click)=\"searchByType()\">Search</button>\r\n        </td>\r\n        <td>\r\n          <button class=\"searchbutton\" (click)=\"searchByPrice()\">Search</button>\r\n        </td>\r\n        <td>\r\n          <button class=\"searchbutton\" (click)=\"searchByEndDate()\">Search</button>\r\n        </td>\r\n      </tr>\r\n    </table>\r\n  </div>\r\n  <div class=\"coupon\" *ngFor=\"let coupon of coupons\">\r\n    <app-coupon [coupon]=\"coupon\" [isCustomer]=\"isCustomer\" [purchased] = \"purchased\"></app-coupon>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -184,7 +184,7 @@ module.exports = "<div *ngIf=\"!submitted\" class=\"loginForm\">\n  <form #formI
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div *ngIf=\"menuItems\">\n  <div *ngFor=\"let entry of menuItems\">\n    <button a routerLink=\"{{entry.routePath}}\" class=\"menubutton\">{{entry.description}}</button>\n  </div>\n</div>\n"
+module.exports = "\n<div *ngIf=\"menuItems\">\n  <div *ngFor=\"let entry of menuItems\">\n    <button a routerLink=\"{{entry.routePath}}\" class=\"menubutton\">{{entry.description}}</button>\n  </div>\n  <button class=\"menubutton\" (click)=\"logout()\">Logout</button>\n</div>\n"
 
 /***/ }),
 
@@ -236,6 +236,7 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: 'home', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"] },
     { path: 'coupons/:isCustomer', component: _components_coupons_coupons_component__WEBPACK_IMPORTED_MODULE_5__["CouponsComponent"] },
+    { path: 'customer/:myCoupons', component: _components_coupons_coupons_component__WEBPACK_IMPORTED_MODULE_5__["CouponsComponent"] },
     { path: 'coupons/coupon/:id', component: _components_coupon_coupon_component__WEBPACK_IMPORTED_MODULE_4__["CouponComponent"] },
     { path: 'customers', component: _components_customers_customers_component__WEBPACK_IMPORTED_MODULE_6__["CustomersComponent"] },
     { path: 'companies', component: _components_companies_companies_component__WEBPACK_IMPORTED_MODULE_7__["CompaniesComponent"] },
@@ -392,7 +393,7 @@ var CompaniesComponent = /** @class */ (function () {
     }
     CompaniesComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.adminService.getAllCompanies().subscribe(function (companies) { return _this.companies = companies; });
+        this.adminService.getAllCompanies().subscribe(function (companies) { return _this.companies = companies; }, function (error) { alert(error.message); });
     };
     CompaniesComponent.prototype.goToAdd = function () {
         this.router.navigateByUrl('companyAddOrUpdate/add/0');
@@ -461,7 +462,7 @@ var CompanyAddUpdateComponent = /** @class */ (function () {
         // tslint:disable-next-line: triple-equals
         this.add = (this.id == 0);
         if (!this.add) {
-            this.adminService.getCompanyById(this.id).subscribe(function (company) { return _this.company = company; });
+            this.adminService.getCompanyById(this.id).subscribe(function (company) { return _this.company = company; }, function (error) { alert(error.message); });
         }
         else {
             this.company = new src_app_models_company__WEBPACK_IMPORTED_MODULE_3__["Company"](this.id, '', '', '');
@@ -470,10 +471,10 @@ var CompanyAddUpdateComponent = /** @class */ (function () {
     CompanyAddUpdateComponent.prototype.submitChanges = function () {
         var _this = this;
         if (this.add) {
-            this.adminService.addCompany(this.company).subscribe(function () { _this.router.navigateByUrl(_this.url); });
+            this.adminService.addCompany(this.company).subscribe(function () { _this.router.navigateByUrl(_this.url); }, function (error) { alert(error.message); });
         }
         else {
-            this.adminService.updateCompany(this.company).subscribe(function () { _this.router.navigateByUrl(_this.url); });
+            this.adminService.updateCompany(this.company).subscribe(function () { _this.router.navigateByUrl(_this.url); }, function (error) { alert(error.message); });
         }
     };
     CompanyAddUpdateComponent.ctorParameters = function () { return [
@@ -526,11 +527,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_models_company__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/models/company */ "./src/app/models/company.ts");
-/* harmony import */ var src_app_services_company_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/company.service */ "./src/app/services/company.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/admin.service */ "./src/app/services/admin.service.ts");
-/* harmony import */ var src_app_services_prompt_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/prompt.service */ "./src/app/services/prompt.service.ts");
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/admin.service */ "./src/app/services/admin.service.ts");
+/* harmony import */ var src_app_services_prompt_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/prompt.service */ "./src/app/services/prompt.service.ts");
 
 
 
@@ -538,8 +537,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CompanyComponent = /** @class */ (function () {
-    function CompanyComponent(companyService, adminService, promptService, router) {
-        this.companyService = companyService;
+    function CompanyComponent(adminService, promptService, router) {
         this.adminService = adminService;
         this.promptService = promptService;
         this.router = router;
@@ -557,14 +555,13 @@ var CompanyComponent = /** @class */ (function () {
             subscribe(function () {
             _this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(function () {
                 _this.router.navigate(['/companies']);
-            });
+            }, function (error) { alert(error.message); });
         });
     };
     CompanyComponent.ctorParameters = function () { return [
-        { type: src_app_services_company_service__WEBPACK_IMPORTED_MODULE_3__["CompanyService"] },
-        { type: src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_5__["AdminService"] },
-        { type: src_app_services_prompt_service__WEBPACK_IMPORTED_MODULE_6__["PromptService"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+        { type: src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"] },
+        { type: src_app_services_prompt_service__WEBPACK_IMPORTED_MODULE_5__["PromptService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -576,10 +573,9 @@ var CompanyComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./company.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/company/company.component.html"),
             styles: [__webpack_require__(/*! ./company.component.css */ "./src/app/components/company/company.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_company_service__WEBPACK_IMPORTED_MODULE_3__["CompanyService"],
-            src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_5__["AdminService"],
-            src_app_services_prompt_service__WEBPACK_IMPORTED_MODULE_6__["PromptService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"],
+            src_app_services_prompt_service__WEBPACK_IMPORTED_MODULE_5__["PromptService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], CompanyComponent);
     return CompanyComponent;
 }());
@@ -639,7 +635,7 @@ var CouponAddUpdateComponent = /** @class */ (function () {
         // tslint:disable-next-line:triple-equals
         this.add = this.id == 0;
         if (!this.add) {
-            this.couponService.getSingleCoupon(this.id).subscribe(function (coupon) { return _this.coupon = coupon; });
+            this.couponService.getSingleCoupon(this.id).subscribe(function (coupon) { return _this.coupon = coupon; }, function (error) { alert(error.message); });
         }
         else {
             this.coupon = new src_app_models_coupon__WEBPACK_IMPORTED_MODULE_4__["Coupon"](this.id, 0, '', '', src_app_models_CouponType__WEBPACK_IMPORTED_MODULE_5__["CouponType"].FOOD, 0, null, null, '');
@@ -648,10 +644,10 @@ var CouponAddUpdateComponent = /** @class */ (function () {
     CouponAddUpdateComponent.prototype.submitChanges = function () {
         var _this = this;
         if (this.add) {
-            this.companyService.addCoupon(this.coupon).subscribe(function () { _this.router.navigateByUrl(_this.url); });
+            this.companyService.addCoupon(this.coupon).subscribe(function () { _this.router.navigateByUrl(_this.url); }, function (error) { alert(error.message); });
         }
         else {
-            this.companyService.updateCoupon(this.coupon).subscribe(function () { _this.router.navigateByUrl(_this.url); });
+            this.companyService.updateCoupon(this.coupon).subscribe(function () { _this.router.navigateByUrl(_this.url); }, function (error) { alert(error.message); });
         }
     };
     CouponAddUpdateComponent.ctorParameters = function () { return [
@@ -716,21 +712,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CouponComponent = /** @class */ (function () {
-    function CouponComponent(couponService, companyService, customerService, promptService, activatedRoute) {
+    function CouponComponent(couponService, companyService, customerService, promptService, activatedRoute, router) {
         this.couponService = couponService;
         this.companyService = companyService;
         this.customerService = customerService;
         this.promptService = promptService;
         this.activatedRoute = activatedRoute;
+        this.router = router;
     }
     CouponComponent.prototype.ngOnInit = function () {
         var _this = this;
         var id = this.coupon ? this.coupon.id : this.activatedRoute.snapshot.params.id;
-        this.couponService.getCoupons(this.isCustomer).subscribe(function (coupons) {
+        this.couponService.getSingleCoupon(id).subscribe(function (coupon) {
+            _this.coupon = coupon;
             // tslint:disable-next-line: triple-equals
-            _this.coupon = coupons.find(function (c) { return id == c.id; });
             _this.url = '/couponAddOrUpdate/' + _this.coupon.id;
-        });
+        }, function (error) { alert(error.message); });
     };
     CouponComponent.prototype.promptMessage = function () {
         var _this = this;
@@ -743,23 +740,24 @@ var CouponComponent = /** @class */ (function () {
             _this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(function () {
                 _this.router.navigateByUrl('/coupons/company');
             });
-        });
+        }, function (error) { alert(error.message); });
     };
     CouponComponent.prototype.purchaseCoupon = function () {
         var _this = this;
         this.customerService.purchase(this.coupon)
             .subscribe(function () {
             _this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(function () {
-                _this.router.navigateByUrl('/coupons/customer');
+                _this.router.navigateByUrl('/coupons/isCustomer');
             });
-        });
+        }, function (error) { alert(error.message); });
     };
     CouponComponent.ctorParameters = function () { return [
         { type: src_app_services_coupon_service__WEBPACK_IMPORTED_MODULE_3__["CouponService"] },
         { type: src_app_services_company_service__WEBPACK_IMPORTED_MODULE_5__["CompanyService"] },
         { type: src_app_services_customer_service__WEBPACK_IMPORTED_MODULE_6__["CustomerService"] },
         { type: src_app_services_prompt_service__WEBPACK_IMPORTED_MODULE_7__["PromptService"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -769,6 +767,10 @@ var CouponComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Boolean)
     ], CouponComponent.prototype, "isCustomer", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Boolean)
+    ], CouponComponent.prototype, "purchased", void 0);
     CouponComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-coupon',
@@ -779,7 +781,8 @@ var CouponComponent = /** @class */ (function () {
             src_app_services_company_service__WEBPACK_IMPORTED_MODULE_5__["CompanyService"],
             src_app_services_customer_service__WEBPACK_IMPORTED_MODULE_6__["CustomerService"],
             src_app_services_prompt_service__WEBPACK_IMPORTED_MODULE_7__["PromptService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], CouponComponent);
     return CouponComponent;
 }());
@@ -795,7 +798,7 @@ var CouponComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".wrapper {\r\n  height: 100%;\r\n  width: 100%;\r\n  overflow: auto;\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 30%);\r\n}\r\n.comptable {\r\n  width: 100%;\r\n}\r\n.headcomp {\r\n  grid-column: span 3;\r\n  grid-template-columns: repeat(3, 30%);\r\n}\r\n.custtable {\r\n  width: 100%;\r\n}\r\n.headcust {\r\n  grid-column: span 3;\r\n  grid-template-columns: repeat(3, 30%);\r\n}\r\n.button {\r\n  grid-column: span 1;\r\n}\r\n.search {\r\n  grid-column: span 1;\r\n}\r\n.coupon {\r\n  grid-column: span 1;\r\n}\r\n.coupon:hover {\r\n  border: 5px dotted darkgrey;\r\n  border-radius: 15px;\r\n  cursor: pointer;\r\n}\r\n.buttonadd {\r\n  background-color: #3ee034;\r\n  border: 2px solid #3ee034;\r\n  color: white;\r\n  padding: 16px 32px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-size: 16px;\r\n  font-weight: bold;;\r\n  margin: 0 auto; /* Safari */\r\n  transition-duration: 0.5s;\r\n  cursor: pointer;\r\n  border-radius: 8px;\r\n  width: 100%;\r\n}\r\n.buttonadd:hover {\r\n  background-color: white;\r\n  color: #3ee034;\r\n  border: 2px solid #3ee034;\r\n}\r\n.searchbutton {\r\n  background-color: #346ae0;\r\n  border: 2px solid #346ae0;\r\n  color: white;\r\n  padding: 16px 32px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-size: 16px;\r\n  font-weight: bold;;\r\n  margin: 0 auto; /* Safari */\r\n  transition-duration: 0.5s;\r\n  cursor: pointer;\r\n  border-radius: 8px;\r\n  width: 100%;\r\n}\r\n.searchbutton:hover {\r\n  background-color: white;\r\n  color: #346ae0;\r\n  border: 2px solid #346ae0;\r\n}\r\n.formLabel {\r\n  background-color: inherit;\r\n  color: white;\r\n  text-shadow: black 0.1em 0.1em 0.2em;\r\n  font-family: Courier New, monospace;\r\n  font-weight: 600;\r\n  font-stretch: expanded;\r\n  font-size: 22px;\r\n  text-align: left;\r\n  /* border: 2px solid black;\r\n  border-radius: 4px; */\r\n  display: inline-block;\r\n  padding: 5px;\r\n  width: 35%;\r\n  margin-bottom: 10px;\r\n}\r\n.forminput {\r\n  text-align: left;\r\n  display: inline-block;\r\n  width: 55%;\r\n  height: auto;\r\n  font-size: 20px;\r\n  padding: 10px;\r\n  border: 2px solid red;\r\n  border-radius: 4px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jb3Vwb25zL2NvdXBvbnMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsY0FBYztFQUNkLGFBQWE7RUFDYixxQ0FBcUM7QUFDdkM7QUFDQTtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsbUJBQW1CO0VBQ25CLHFDQUFxQztBQUN2QztBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxtQkFBbUI7RUFDbkIscUNBQXFDO0FBQ3ZDO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSwyQkFBMkI7RUFDM0IsbUJBQW1CO0VBQ25CLGVBQWU7QUFDakI7QUFDQTtFQUNFLHlCQUF5QjtFQUN6Qix5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLHFCQUFxQjtFQUNyQixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLGNBQWMsRUFDcUIsV0FBVztFQUM5Qyx5QkFBeUI7RUFDekIsZUFBZTtFQUNmLGtCQUFrQjtFQUNsQixXQUFXO0FBQ2I7QUFDQTtFQUNFLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QseUJBQXlCO0FBQzNCO0FBQ0E7RUFDRSx5QkFBeUI7RUFDekIseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixxQkFBcUI7RUFDckIsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixjQUFjLEVBQ3FCLFdBQVc7RUFDOUMseUJBQXlCO0VBQ3pCLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsV0FBVztBQUNiO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsY0FBYztFQUNkLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixvQ0FBb0M7RUFDcEMsbUNBQW1DO0VBQ25DLGdCQUFnQjtFQUNoQixzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQjt1QkFDcUI7RUFDckIscUJBQXFCO0VBQ3JCLFlBQVk7RUFDWixVQUFVO0VBQ1YsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLFVBQVU7RUFDVixZQUFZO0VBQ1osZUFBZTtFQUNmLGFBQWE7RUFDYixxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLG1CQUFtQjtBQUNyQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY291cG9ucy9jb3Vwb25zLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud3JhcHBlciB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIG92ZXJmbG93OiBhdXRvO1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMzAlKTtcclxufVxyXG4uY29tcHRhYmxlIHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4uaGVhZGNvbXAge1xyXG4gIGdyaWQtY29sdW1uOiBzcGFuIDM7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMzAlKTtcclxufVxyXG4uY3VzdHRhYmxlIHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4uaGVhZGN1c3Qge1xyXG4gIGdyaWQtY29sdW1uOiBzcGFuIDM7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMzAlKTtcclxufVxyXG4uYnV0dG9uIHtcclxuICBncmlkLWNvbHVtbjogc3BhbiAxO1xyXG59XHJcbi5zZWFyY2gge1xyXG4gIGdyaWQtY29sdW1uOiBzcGFuIDE7XHJcbn1cclxuLmNvdXBvbiB7XHJcbiAgZ3JpZC1jb2x1bW46IHNwYW4gMTtcclxufVxyXG4uY291cG9uOmhvdmVyIHtcclxuICBib3JkZXI6IDVweCBkb3R0ZWQgZGFya2dyZXk7XHJcbiAgYm9yZGVyLXJhZGl1czogMTVweDtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuLmJ1dHRvbmFkZCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzNlZTAzNDtcclxuICBib3JkZXI6IDJweCBzb2xpZCAjM2VlMDM0O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAxNnB4IDMycHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgZm9udC1zaXplOiAxNnB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkOztcclxuICBtYXJnaW46IDAgYXV0bztcclxuICAtd2Via2l0LXRyYW5zaXRpb24tZHVyYXRpb246IDAuNXM7IC8qIFNhZmFyaSAqL1xyXG4gIHRyYW5zaXRpb24tZHVyYXRpb246IDAuNXM7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIGJvcmRlci1yYWRpdXM6IDhweDtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4uYnV0dG9uYWRkOmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICBjb2xvcjogIzNlZTAzNDtcclxuICBib3JkZXI6IDJweCBzb2xpZCAjM2VlMDM0O1xyXG59XHJcbi5zZWFyY2hidXR0b24ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMzNDZhZTA7XHJcbiAgYm9yZGVyOiAycHggc29saWQgIzM0NmFlMDtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZzogMTZweCAzMnB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBmb250LXdlaWdodDogYm9sZDs7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uLWR1cmF0aW9uOiAwLjVzOyAvKiBTYWZhcmkgKi9cclxuICB0cmFuc2l0aW9uLWR1cmF0aW9uOiAwLjVzO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLnNlYXJjaGJ1dHRvbjpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgY29sb3I6ICMzNDZhZTA7XHJcbiAgYm9yZGVyOiAycHggc29saWQgIzM0NmFlMDtcclxufVxyXG4uZm9ybUxhYmVsIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICB0ZXh0LXNoYWRvdzogYmxhY2sgMC4xZW0gMC4xZW0gMC4yZW07XHJcbiAgZm9udC1mYW1pbHk6IENvdXJpZXIgTmV3LCBtb25vc3BhY2U7XHJcbiAgZm9udC13ZWlnaHQ6IDYwMDtcclxuICBmb250LXN0cmV0Y2g6IGV4cGFuZGVkO1xyXG4gIGZvbnQtc2l6ZTogMjJweDtcclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIC8qIGJvcmRlcjogMnB4IHNvbGlkIGJsYWNrO1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDsgKi9cclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgcGFkZGluZzogNXB4O1xyXG4gIHdpZHRoOiAzNSU7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxufVxyXG4uZm9ybWlucHV0IHtcclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB3aWR0aDogNTUlO1xyXG4gIGhlaWdodDogYXV0bztcclxuICBmb250LXNpemU6IDIwcHg7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBib3JkZXI6IDJweCBzb2xpZCByZWQ7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuIl19 */"
+module.exports = ".wrapper {\r\n  height: 100%;\r\n  width: 100%;\r\n  overflow: auto;\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 32%);\r\n}\r\n.comptable {\r\n  width: 100%;\r\n}\r\n.headcomp {\r\n  grid-column: span 3;\r\n  grid-template-columns: repeat(3, 30%);\r\n}\r\n.custtable {\r\n  width: 100%;\r\n}\r\n.headcust {\r\n  grid-column: span 3;\r\n  grid-template-columns: repeat(3, 30%);\r\n}\r\ntd {\r\n  width: 33%;\r\n}\r\n.button {\r\n  grid-column: span 1;\r\n}\r\n.search {\r\n  grid-column: span 1;\r\n}\r\n.coupon {\r\n  grid-column: span 1;\r\n}\r\n.coupon:hover {\r\n  border: 5px dotted darkgrey;\r\n  border-radius: 15px;\r\n  cursor: pointer;\r\n}\r\n.buttonadd {\r\n  background-color: #3ee034;\r\n  border: 2px solid #3ee034;\r\n  color: white;\r\n  padding: 16px 32px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-size: 16px;\r\n  font-weight: bold;;\r\n  margin: 0 auto; /* Safari */\r\n  transition-duration: 0.5s;\r\n  cursor: pointer;\r\n  border-radius: 8px;\r\n  width: 100%;\r\n}\r\n.buttonadd:hover {\r\n  background-color: white;\r\n  color: #3ee034;\r\n  border: 2px solid #3ee034;\r\n}\r\n.searchbutton {\r\n  background-color: #346ae0;\r\n  border: 2px solid #346ae0;\r\n  color: white;\r\n  padding: 16px 32px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  display: inline-block;\r\n  font-size: 16px;\r\n  font-weight: bold;;\r\n  margin: 0 auto; /* Safari */\r\n  transition-duration: 0.5s;\r\n  cursor: pointer;\r\n  border-radius: 8px;\r\n  width: 50%;\r\n}\r\n.searchbutton:hover {\r\n  background-color: white;\r\n  color: #346ae0;\r\n  border: 2px solid #346ae0;\r\n}\r\n.formLabel {\r\n  background-color: inherit;\r\n  color: white;\r\n  text-shadow: black 0.1em 0.1em 0.2em;\r\n  font-family: Courier New, monospace;\r\n  font-weight: 600;\r\n  font-stretch: expanded;\r\n  font-size: 22px;\r\n  text-align: left;\r\n  /* border: 2px solid black;\r\n  border-radius: 4px; */\r\n  display: inline-block;\r\n  padding: 5px;\r\n  width: 80%;\r\n  margin-bottom: 10px;\r\n}\r\n.forminput {\r\n  text-align: left;\r\n  display: inline-block;\r\n  width: 80%;\r\n  height: auto;\r\n  font-size: 20px;\r\n  padding: 10px;\r\n  border: 2px solid red;\r\n  border-radius: 4px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jb3Vwb25zL2NvdXBvbnMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsY0FBYztFQUNkLGFBQWE7RUFDYixxQ0FBcUM7QUFDdkM7QUFDQTtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsbUJBQW1CO0VBQ25CLHFDQUFxQztBQUN2QztBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxtQkFBbUI7RUFDbkIscUNBQXFDO0FBQ3ZDO0FBQ0E7RUFDRSxVQUFVO0FBQ1o7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFDQTtFQUNFLDJCQUEyQjtFQUMzQixtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLHlCQUF5QjtFQUN6QixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsY0FBYyxFQUNxQixXQUFXO0VBQzlDLHlCQUF5QjtFQUN6QixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLFdBQVc7QUFDYjtBQUNBO0VBQ0UsdUJBQXVCO0VBQ3ZCLGNBQWM7RUFDZCx5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLHlCQUF5QjtFQUN6Qix5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLHFCQUFxQjtFQUNyQixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLGNBQWMsRUFDcUIsV0FBVztFQUM5Qyx5QkFBeUI7RUFDekIsZUFBZTtFQUNmLGtCQUFrQjtFQUNsQixVQUFVO0FBQ1o7QUFDQTtFQUNFLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QseUJBQXlCO0FBQzNCO0FBQ0E7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLG9DQUFvQztFQUNwQyxtQ0FBbUM7RUFDbkMsZ0JBQWdCO0VBQ2hCLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCO3VCQUNxQjtFQUNyQixxQkFBcUI7RUFDckIsWUFBWTtFQUNaLFVBQVU7RUFDVixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7RUFDckIsVUFBVTtFQUNWLFlBQVk7RUFDWixlQUFlO0VBQ2YsYUFBYTtFQUNiLHFCQUFxQjtFQUNyQixrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9jb3Vwb25zL2NvdXBvbnMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi53cmFwcGVyIHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgzLCAzMiUpO1xyXG59XHJcbi5jb21wdGFibGUge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5oZWFkY29tcCB7XHJcbiAgZ3JpZC1jb2x1bW46IHNwYW4gMztcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgzLCAzMCUpO1xyXG59XHJcbi5jdXN0dGFibGUge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5oZWFkY3VzdCB7XHJcbiAgZ3JpZC1jb2x1bW46IHNwYW4gMztcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgzLCAzMCUpO1xyXG59XHJcbnRkIHtcclxuICB3aWR0aDogMzMlO1xyXG59XHJcbi5idXR0b24ge1xyXG4gIGdyaWQtY29sdW1uOiBzcGFuIDE7XHJcbn1cclxuLnNlYXJjaCB7XHJcbiAgZ3JpZC1jb2x1bW46IHNwYW4gMTtcclxufVxyXG4uY291cG9uIHtcclxuICBncmlkLWNvbHVtbjogc3BhbiAxO1xyXG59XHJcbi5jb3Vwb246aG92ZXIge1xyXG4gIGJvcmRlcjogNXB4IGRvdHRlZCBkYXJrZ3JleTtcclxuICBib3JkZXItcmFkaXVzOiAxNXB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uYnV0dG9uYWRkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjM2VlMDM0O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkICMzZWUwMzQ7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIHBhZGRpbmc6IDE2cHggMzJweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7O1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbi1kdXJhdGlvbjogMC41czsgLyogU2FmYXJpICovXHJcbiAgdHJhbnNpdGlvbi1kdXJhdGlvbjogMC41cztcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5idXR0b25hZGQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gIGNvbG9yOiAjM2VlMDM0O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkICMzZWUwMzQ7XHJcbn1cclxuLnNlYXJjaGJ1dHRvbiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzM0NmFlMDtcclxuICBib3JkZXI6IDJweCBzb2xpZCAjMzQ2YWUwO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAxNnB4IDMycHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgZm9udC1zaXplOiAxNnB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkOztcclxuICBtYXJnaW46IDAgYXV0bztcclxuICAtd2Via2l0LXRyYW5zaXRpb24tZHVyYXRpb246IDAuNXM7IC8qIFNhZmFyaSAqL1xyXG4gIHRyYW5zaXRpb24tZHVyYXRpb246IDAuNXM7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIGJvcmRlci1yYWRpdXM6IDhweDtcclxuICB3aWR0aDogNTAlO1xyXG59XHJcbi5zZWFyY2hidXR0b246aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gIGNvbG9yOiAjMzQ2YWUwO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkICMzNDZhZTA7XHJcbn1cclxuLmZvcm1MYWJlbCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogaW5oZXJpdDtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgdGV4dC1zaGFkb3c6IGJsYWNrIDAuMWVtIDAuMWVtIDAuMmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBDb3VyaWVyIE5ldywgbW9ub3NwYWNlO1xyXG4gIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgZm9udC1zdHJldGNoOiBleHBhbmRlZDtcclxuICBmb250LXNpemU6IDIycHg7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAvKiBib3JkZXI6IDJweCBzb2xpZCBibGFjaztcclxuICBib3JkZXItcmFkaXVzOiA0cHg7ICovXHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICB3aWR0aDogODAlO1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuLmZvcm1pbnB1dCB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgd2lkdGg6IDgwJTtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgZm9udC1zaXplOiAyMHB4O1xyXG4gIHBhZGRpbmc6IDEwcHg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgcmVkO1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -818,41 +821,46 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CouponsComponent = /** @class */ (function () {
-    function CouponsComponent(service, activatedRoute) {
+    function CouponsComponent(service, activatedRoute, router) {
         this.service = service;
         this.activatedRoute = activatedRoute;
+        this.router = router;
     }
     CouponsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.service.getCoupons().subscribe(function (list) { _this.coupons = list; });
-        // For now only - Change later
-        this.isCustomer = (this.activatedRoute.snapshot.params.isCustomer === 'customer');
+        this.isCustomer = (this.activatedRoute.snapshot.params.isCustomer === 'isCustomer'
+            || this.activatedRoute.snapshot.params.myCoupons === 'myCoupons');
+        if (this.activatedRoute.snapshot.params.myCoupons === 'myCoupons') {
+            this.purchased = true;
+            this.isCustomer = true;
+        }
+        else {
+            this.purchased = false;
+        }
+        // this.couponType = CouponType.ALL;
+        this.service.getCoupons(this.purchased).subscribe(function (list) { _this.coupons = list; }, function (error) { alert(error.message); });
     };
     CouponsComponent.prototype.searchByType = function () {
         var _this = this;
-        // tslint:disable-next-line: prefer-const
-        var selected;
-        this.coupons.forEach(function (element) {
-            // tslint:disable-next-line: triple-equals
-            if (element.category == _this.type) {
-                selected.push(element);
-            }
-        });
+        if (this.couponType.toString() === 'ALL') {
+            this.service.getCoupons(this.purchased).subscribe(function (list) { _this.coupons = list; });
+        }
+        else {
+            this.service.getByType(this.couponType, this.isCustomer).subscribe(function (coupons) { _this.coupons = coupons; }, function (error) { alert(error.message); });
+        }
     };
     CouponsComponent.prototype.searchByPrice = function () {
         var _this = this;
-        // tslint:disable-next-line: prefer-const
-        var selected;
-        this.coupons.forEach(function (element) {
-            // tslint:disable-next-line: triple-equals
-            if (element.price <= _this.price) {
-                selected.push(element);
-            }
-        });
+        this.service.getByPrice(this.price, this.isCustomer).subscribe(function (coupons) { _this.coupons = coupons; }, function (error) { alert(error.message); });
+    };
+    CouponsComponent.prototype.searchByEndDate = function () {
+        var _this = this;
+        this.service.getByEndDate(this.purchased, this.endDate).subscribe(function (coupons) { _this.coupons = coupons; }, function (error) { alert(error.message); });
     };
     CouponsComponent.ctorParameters = function () { return [
         { type: src_app_services_coupon_service__WEBPACK_IMPORTED_MODULE_2__["CouponService"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
     ]; };
     CouponsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -860,7 +868,9 @@ var CouponsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./coupons.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/coupons/coupons.component.html"),
             styles: [__webpack_require__(/*! ./coupons.component.css */ "./src/app/components/coupons/coupons.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_coupon_service__WEBPACK_IMPORTED_MODULE_2__["CouponService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_coupon_service__WEBPACK_IMPORTED_MODULE_2__["CouponService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], CouponsComponent);
     return CouponsComponent;
 }());
@@ -1016,7 +1026,7 @@ var CustomerComponent = /** @class */ (function () {
             _this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(function () {
                 _this.router.navigate(['/customers']);
             });
-        });
+        }, function (error) { alert(error.message); });
     };
     CustomerComponent.ctorParameters = function () { return [
         { type: src_app_services_customer_service__WEBPACK_IMPORTED_MODULE_3__["CustomerService"] },
@@ -1085,7 +1095,7 @@ var CustomersComponent = /** @class */ (function () {
     }
     CustomersComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.adminService.getAllCustomers().subscribe(function (customers) { return _this.customers = customers; });
+        this.adminService.getAllCustomers().subscribe(function (customers) { return _this.customers = customers; }, function (error) { alert(error.message); });
     };
     CustomersComponent.ctorParameters = function () { return [
         { type: src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"] },
@@ -1333,9 +1343,8 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.onSubmit = function () {
         var _this = this;
         this.authenticationService.login(this.email, this.password, this.clientType, function () {
-            console.log('Success is working');
             _this.menuComponent.refresh();
-        })
+        }, function () { alert('No user matching the credentials was found'); })
             .subscribe(function (clientType) { _this.clientType = clientType; });
     };
     LoginComponent.prototype.logout = function () {
@@ -1385,22 +1394,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_services_menu_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/menu.service */ "./src/app/services/menu.service.ts");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 
 var MenuComponent = /** @class */ (function () {
-    function MenuComponent(menuService, changeDetectorRef) {
+    function MenuComponent(menuService, authenticationService, router) {
         var _this = this;
         this.menuService = menuService;
-        this.changeDetectorRef = changeDetectorRef;
+        this.authenticationService = authenticationService;
+        this.router = router;
         this.menuService.getMenuItems().subscribe(function (mi) {
             _this.menuItems = mi;
-        });
+        }, function (error) { alert(error.message); });
     }
     MenuComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.menuService.getMenuItems().subscribe(function (mi) {
             _this.menuItems = mi;
+        }, function (error) { alert(error.message); });
+    };
+    MenuComponent.prototype.logout = function () {
+        var _this = this;
+        this.authenticationService.logout(function () {
+            _this.router.navigateByUrl('');
         });
     };
     MenuComponent.prototype.refresh = function () {
@@ -1408,7 +1428,8 @@ var MenuComponent = /** @class */ (function () {
     };
     MenuComponent.ctorParameters = function () { return [
         { type: src_app_services_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"] },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+        { type: src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
     ]; };
     MenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1416,7 +1437,9 @@ var MenuComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./menu.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/menu/menu.component.html"),
             styles: [__webpack_require__(/*! ./menu.component.css */ "./src/app/components/menu/menu.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"],
+            src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], MenuComponent);
     return MenuComponent;
 }());
@@ -1560,12 +1583,12 @@ var Company = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Coupon", function() { return Coupon; });
 var Coupon = /** @class */ (function () {
-    function Coupon(id, amount, title, message, category, price, startDate, endDate, image) {
+    function Coupon(id, amount, title, description, couponType, price, startDate, endDate, image) {
         this.id = id;
         this.amount = amount;
         this.title = title;
-        this.message = message;
-        this.category = category;
+        this.description = description;
+        this.couponType = couponType;
         this.price = price;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -1641,8 +1664,6 @@ var AdminService = /** @class */ (function () {
         this.adminRootUrl = "http://localhost:8080/Rest/Admin";
     }
     AdminService.prototype.addCompany = function (company) {
-        console.log(company);
-        console.log(this.adminRootUrl + '/Company/Create');
         return this.httpClient.post(this.adminRootUrl + '/Company/Create', company, { withCredentials: true });
     };
     AdminService.prototype.getCompanyById = function (id) {
@@ -1725,30 +1746,34 @@ var AuthenticationService = /** @class */ (function () {
         }
         return _models_clientType__WEBPACK_IMPORTED_MODULE_4__["ClientType"].CUSTOMER;
     };
-    AuthenticationService.prototype.login = function (email, password, clientType, success) {
+    AuthenticationService.prototype.login = function (email, password, clientType, success, failure) {
         var _this = this;
-        console.log('logging in');
         this.user = { email: email, password: password, clientType: clientType };
         this.httpClient.post(this.loginUrl, this.user, { withCredentials: true }).subscribe(function (userFromDB) {
             if (userFromDB) {
                 _this.user = userFromDB;
-                console.log('user is found');
                 _this.cookieService.set('clientType', clientType.toString());
                 success();
                 // tslint:disable-next-line:no-shadowed-variable
                 return new rxjs__WEBPACK_IMPORTED_MODULE_5__["Observable"](function (clientType) { return clientType; });
             }
             else {
-                console.log('No user is found');
                 _this.cookieService.delete('clientType');
+                failure();
             }
         });
         // tslint:disable-next-line:no-shadowed-variable
         return new rxjs__WEBPACK_IMPORTED_MODULE_5__["Observable"](function (clientType) { return clientType; });
     };
-    AuthenticationService.prototype.logout = function () {
-        this.httpClient.get("/Logout").subscribe();
-        this.cookieService.delete('clientType');
+    AuthenticationService.prototype.logout = function (success) {
+        var _this = this;
+        this.httpClient.get("http://localhost:8080/Rest/Logout").subscribe(function () {
+            _this.user = null;
+            _this.cookieService.delete('clientType');
+            if (success) {
+                success();
+            }
+        });
     };
     AuthenticationService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
@@ -1796,7 +1821,6 @@ var CompanyService = /** @class */ (function () {
         return null; // ??
     };
     CompanyService.prototype.addCoupon = function (coupon) {
-        console.log('Adding coupon ' + coupon);
         return this.httpClient.post(this.companyRootUrl + '/Create', coupon, { withCredentials: true });
     };
     CompanyService.prototype.removeCoupon = function (coupon) {
@@ -1849,9 +1873,9 @@ var CouponService = /** @class */ (function () {
         this.customerRootUrl = "http://localhost:8080/Rest/Customer";
         this.companyRootUrl = "http://localhost:8080/Rest/Company";
     }
-    CouponService.prototype.getCoupons = function (clientLoggedIn) {
-        if (clientLoggedIn === void 0) { clientLoggedIn = false; }
-        if (clientLoggedIn) {
+    CouponService.prototype.getCoupons = function (getAllPurchasedCoupons) {
+        if (getAllPurchasedCoupons === void 0) { getAllPurchasedCoupons = false; }
+        if (getAllPurchasedCoupons) {
             return this.httpClient.get(this.customerRootUrl + '/getAllPurchasedCoupons', { withCredentials: true });
         }
         return this.httpClient.get(this.visitorRootUrl + '/GetAllCoupons', { withCredentials: true });
@@ -1868,9 +1892,18 @@ var CouponService = /** @class */ (function () {
     CouponService.prototype.getByPrice = function (price, isCustomer) {
         var priceContextPath = '/GetAllCouponsByPrice?price=';
         if (isCustomer) {
-            return this.httpClient.get(this.customerRootUrl + priceContextPath + price, { withCredentials: true });
+            return this.httpClient.get(this.customerRootUrl +
+                '/getAllPurchasedCouponsByPrice?price=' + price, { withCredentials: true });
         }
         return this.httpClient.get(this.visitorRootUrl + priceContextPath + price, { withCredentials: true });
+    };
+    CouponService.prototype.getByEndDate = function (purchasedCoupons, endDate) {
+        if (purchasedCoupons) {
+            return this.httpClient.get(this.customerRootUrl +
+                '/getAllPurchasedCouponsByEndDate?date=' + endDate, { withCredentials: true });
+        }
+        return this.httpClient.get(this.visitorRootUrl +
+            '/GetAllCouponsByEndDate?date=' + endDate, { withCredentials: true });
     };
     CouponService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
