@@ -96,7 +96,7 @@ public class Coupon {
 		if(this.company != null ) throw new RuntimeException("Company can only be set once");
 		this.company = company;
 		setTitle(getTitle());
-	}
+	}//
 	
 	public void setTitle(String title) {
 		this.title =company==null?  title : company.getName() + "'s " + title;
