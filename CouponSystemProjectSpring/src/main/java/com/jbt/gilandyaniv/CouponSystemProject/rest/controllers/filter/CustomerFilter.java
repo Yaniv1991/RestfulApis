@@ -23,7 +23,6 @@ public class CustomerFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-
 		if (((HttpServletRequest) request).getSession(false).getAttribute("service") instanceof CustomerService) {
 			chain.doFilter(request, response);
 		}
